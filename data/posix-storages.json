@@ -1,0 +1,42 @@
+{
+    "sgciResources": [
+      {
+        "id": "1",
+        "name": "SCIGAP Development Storage",
+        "resourceType": "STORAGE",
+        "hosts": [
+          {
+            "hostname": "pgadev.scigap.org"
+          }
+        ],
+        "resource": {
+          "storageType": "POSIX",
+          "fileSystems": [
+            {
+              "rootDir": "/",
+              "workDir": "/data"
+            }
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "name": "SCIGAP Staging Storage",
+        "resourceType": "STORAGE",
+        "hosts": [
+          {
+            "hostname": "pganew.staging.scigap.org"
+          }
+        ],
+        "resource": {
+          "storageType": "POSIX",
+          "fileSystems": [
+            {
+              "rootDir": "/",
+              "workDir": "/data"
+            }
+          ]
+        }
+      }
+    ]
+  }
