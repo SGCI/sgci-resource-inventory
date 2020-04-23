@@ -1,2 +1,2 @@
 # computational-resource-catalog
-This contains all the computational resource entities 
+This contains all the computational resource entities  
