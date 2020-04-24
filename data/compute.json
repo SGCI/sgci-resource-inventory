@@ -1,0 +1,25 @@
+{
+    "sgciResources": [
+        {
+            "id": "3",
+            "name": "Carbonate HPC",
+            "resourceType": "COMPUTE",
+            "resource": {
+            "schedulerType": "BATCH",
+            "connection": {
+                "connectionProtocol": "SSH",
+                "securityProtocol": "SSHKEYS",
+                "port": 22
+            },
+            "batchSystem": {
+                "jobManager": "SLURM",
+                "commandPaths": [
+                {
+                    "name": "SUBMISSION"
+                }
+                ]
+            }
+            }
+        }
+    ]
+}
