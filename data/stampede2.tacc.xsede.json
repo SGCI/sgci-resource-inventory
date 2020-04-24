@@ -1,0 +1,28 @@
+{
+  "sgciResources": [
+    {
+      "id": "3",
+      "name": "TACC Stampede2 Cluster",
+      "resourceType": "COMPUTE",
+      "resource": {
+        "schedulerType": "BATCH",
+        "hosts": {
+          "hostname": "stampede2.tacc.xsede.org"
+        },
+        "connection": {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        },
+        "batchSystem": {
+          "jobManager": "SLURM",
+          "commandPaths": [
+            {
+              "name": "SUBMISSION"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
