@@ -38,17 +38,11 @@
         }
       ]
     },
-    "hosts": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/hostDefinition"
-      }
+    "host": {
+      "$ref": "#/definitions/hostNameDefinition"
     },
-    "connections": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/connectionDefinition"
-      }
+    "connection": {
+      "$ref": "#/definitions/connectionDefinition"
     }
   },
   "definitions": {
@@ -71,32 +65,6 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 1024
-    },
-    "hostDefinition": {
-      "type": "object",
-      "oneOf": [
-        {
-          "required": [
-            "hostname"
-          ]
-        },
-        {
-          "required": [
-            "ip"
-          ]
-        }
-      ],
-      "properties": {
-        "hostname": {
-          "$ref": "#/definitions/hostNameDefinition"
-        },
-        "ip": {
-          "type": "string"
-        },
-        "priority": {
-          "type": "integer"
-        }
-      }
     },
     "connectionDefinition": {
       "type": "object",
@@ -143,7 +111,7 @@
       "type": "object",
       "required": [
         "storageType",
-        "fileSystems"
+        "fileSystem"
       ],
       "properties": {
         "storageType": {
@@ -157,11 +125,8 @@
         "connection": {
           "$ref": "#/definitions/connectionDefinition"
         },
-        "fileSystems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/fileSystemDefinition"
-          }
+        "fileSystem": {
+          "$ref": "#/definitions/fileSystemDefinition"
         },
         "capacity": {
           "type": "object",
@@ -207,12 +172,14 @@
         {
           "required": [
             "schedulerType",
+            "storageResource",
             "batchSystem"
           ]
         },
         {
           "required": [
             "schedulerType",
+            "storageResource",
             "forkSystem"
           ]
         }
@@ -225,6 +192,9 @@
             "BATCH",
             "ON_DEMAND"
           ]
+        },
+        "storageResource": {
+          "$ref": "#/definitions/storageDefinition"
         },
         "connection": {
           "$ref": "#/definitions/connectionDefinition"
@@ -290,16 +260,7 @@
         "commandPaths": {
           "type": "array",
           "items": {
-            "type": "string",
-            "examples": [
-              "SUBMISSION",
-              "JOB_MONITORING",
-              "DELETION",
-              "CHECK_JOB",
-              "SHOW_QUEUE",
-              "SHOW_RESERVATION",
-              "SHOW_START"
-            ]
+            "$ref": "#/definitions/commandPathDefinition"
           }
         },
         "partitions": {
@@ -307,6 +268,30 @@
           "items": {
             "$ref": "#/definitions/partitionDefinition"
           }
+        }
+      }
+    },
+    "commandPathDefinition": {
+      "type": "object",
+      "required": [
+        "name",
+        "path"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "examples": [
+            "SUBMISSION",
+            "JOB_MONITORING",
+            "DELETION",
+            "CHECK_JOB",
+            "SHOW_QUEUE",
+            "SHOW_RESERVATION",
+            "SHOW_START"
+          ]
+        },
+        "path": {
+          "type": "string"
         }
       }
     },
