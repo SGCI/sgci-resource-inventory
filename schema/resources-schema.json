@@ -11,6 +11,9 @@
     "resource"
   ],
   "properties": {
+    "version": {
+      "type": "string"
+    },
     "id": {
       "$ref": "#/definitions/resourceId"
     },
