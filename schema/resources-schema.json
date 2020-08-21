@@ -11,7 +11,7 @@
     "resource"
   ],
   "properties": {
-    "version": {
+    "schemaVersion": {
       "type": "string"
     },
     "id": {
