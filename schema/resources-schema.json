@@ -1,67 +1,54 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "http://sciencegateways.org/SGCIResource",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Schema for an SGCI Resource",
   "additionalProperties": false,
   "type": "object",
   "required": [
-    "sgciResources"
+    "id",
+    "name",
+    "resourceType",
+    "resource"
   ],
   "properties": {
-    "sgciResources": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/sgciResource"
-      }
+    "schemaVersion": {
+      "type": "string"
+    },
+    "id": {
+      "$ref": "#/definitions/resourceId"
+    },
+    "name": {
+      "$ref": "#/definitions/resourceName"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "resourceType": {
+      "type": "string",
+      "enum": [
+        "STORAGE",
+        "COMPUTE"
+      ]
+    },
+    "resource": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/storageDefinition"
+        },
+        {
+          "$ref": "#/definitions/computeDefinition"
+        }
+      ]
+    },
+    "host": {
+      "$ref": "#/definitions/hostNameDefinition"
+    },
+    "connection": {
+      "$ref": "#/definitions/connectionDefinition"
     }
   },
   "definitions": {
-    "sgciResource": {
-      "type": "object",
-      "required": [
-        "id",
-        "name",
-        "resourceType",
-        "resource"
-      ],
-      "properties": {
-        "id": {
-          "$ref": "#/definitions/resourceId"
-        },
-        "name": {
-          "$ref": "#/definitions/resourceName"
-        },
-        "description": {
-          "type": "string",
-          "maxLength": 2048
-        },
-        "resourceType": {
-          "$ref": "#/definitions/resourceTypeDefinition"
-        },
-        "resource": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/storageDefinition"
-            },
-            {
-              "$ref": "#/definitions/computeDefinition"
-            }
-          ]
-        },
-        "hosts": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/hostDefinition"
-          }
-        },
-        "connections": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/connectionDefinition"
-          }
-        }
-      }
-    },
     "resourceId": {
       "type": "string",
       "minLength": 1,
@@ -72,13 +59,6 @@
       "minLength": 1,
       "maxLength": 256
     },
-    "resourceTypeDefinition": {
-      "type": "string",
-      "enum": [
-        "STORAGE",
-        "COMPUTE"
-      ]
-    },
     "hostNameDefinition": {
       "type": "string",
       "minLength": 1,
@@ -88,35 +68,6 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 1024
-    },
-    "memorySizeSpec": {
-      "type": "string"
-    },
-    "hostDefinition": {
-      "type": "object",
-      "oneOf": [
-        {
-          "required": [
-            "hostname"
-          ]
-        },
-        {
-          "required": [
-            "ip"
-          ]
-        }
-      ],
-      "properties": {
-        "hostname": {
-          "$ref": "#/definitions/hostNameDefinition"
-        },
-        "ip": {
-          "type": "string"
-        },
-        "priority": {
-          "type": "integer"
-        }
-      }
     },
     "connectionDefinition": {
       "type": "object",
@@ -148,6 +99,9 @@
         "port": {
           "type": "integer"
         },
+        "useProxy": {
+          "type": "boolean"
+        },
         "proxyHost": {
           "$ref": "#/definitions/hostNameDefinition"
         },
@@ -160,7 +114,7 @@
       "type": "object",
       "required": [
         "storageType",
-        "fileSystems"
+        "fileSystem"
       ],
       "properties": {
         "storageType": {
@@ -174,11 +128,8 @@
         "connection": {
           "$ref": "#/definitions/connectionDefinition"
         },
-        "fileSystems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/fileSystemDefinition"
-          }
+        "fileSystem": {
+          "$ref": "#/definitions/fileSystemDefinition"
         },
         "capacity": {
           "type": "object",
@@ -188,7 +139,7 @@
             }
           }
         },
-        "quota": {
+        "defaultQuota": {
           "type": "object",
           "properties": {
             "bytesPerUser": {
@@ -224,12 +175,14 @@
         {
           "required": [
             "schedulerType",
+            "storageResource",
             "batchSystem"
           ]
         },
         {
           "required": [
             "schedulerType",
+            "storageResource",
             "forkSystem"
           ]
         }
@@ -242,6 +195,9 @@
             "BATCH",
             "ON_DEMAND"
           ]
+        },
+        "storageResource": {
+          "$ref": "#/definitions/storageDefinition"
         },
         "connection": {
           "$ref": "#/definitions/connectionDefinition"
@@ -321,7 +277,8 @@
     "commandPathDefinition": {
       "type": "object",
       "required": [
-        "name"
+        "name",
+        "path"
       ],
       "properties": {
         "name": {
@@ -335,6 +292,9 @@
             "SHOW_RESERVATION",
             "SHOW_START"
           ]
+        },
+        "path": {
+          "type": "string"
         }
       }
     },
@@ -373,7 +333,7 @@
               "type": "integer"
             },
             "maxMemoryPerJob": {
-              "$ref": "#/definitions/memorySizeSpec"
+              "type": "string"
             },
             "maxCPUsPerJob": {
               "type": "integer"
@@ -394,8 +354,8 @@
         "systemType": {
           "type": "string",
           "enum": [
-            "Linux",
-            "Windows"
+            "LINUX",
+            "WINDOWS"
           ]
         },
         "version": {
@@ -425,7 +385,7 @@
           "type": "string"
         },
         "memorySize": {
-          "$ref": "#/definitions/memorySizeSpec"
+          "type": "string"
         }
       }
     }
