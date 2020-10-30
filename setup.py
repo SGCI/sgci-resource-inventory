@@ -4,7 +4,9 @@ setup(
     name="sgci-resource-inventory",
     install_requires=[
         'requests',
-        'simplejson'],
+        'simplejson',
+        'sphinx-jsonschema',
+        'msmb_theme'],
     extras_require={
         'tests': [
             'nose',
