@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Storage Resource Object &mdash; SGCI RESOURCE INVENTORY  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/versions.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Compute Resource Object" href="computeDefinition.html" />
+    <link rel="prev" title="Introduction to SCGI Inventory" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SGCI RESOURCE INVENTORY
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to SCGI Inventory</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Storage Resource Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filesystemdefinition">fileSystemDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dirpath">dirPath</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema.html">Complete INVENTORY Schema</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SGCI RESOURCE INVENTORY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Storage Resource Object</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/storageDefinition.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="storage-resource-object">
+<h1>Storage Resource Object<a class="headerlink" href="#storage-resource-object" title="Permalink to this headline">¶</a></h1>
+<p>The Storage Resource Object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, all resource descriptions must include values for the storage properties.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="4"><p>The Storage Resource Object is used to describe storage properties of the resource.
+All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such,
+All resource descriptions must include values for the storage properties.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="4"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p><strong>storageType</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>High-level category to which this storage resource belongs.
+Determines additional properties that can be provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>enum</p></td>
+<td colspan="2"><p>POSIX, S3, OBJECT_STORE</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>connection</p></li>
+</ul>
+</td>
+<td colspan="3"><p>The connection object includes additional details about pertaining to securely accessing the resource. When specified as part of the storage object, the connection details only apply when accessing the storage facilities of the resource.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p><span class="xref std std-ref">#/definitions/connectionDefinition</span></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>fileSystem</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p><span class="xref std std-ref">#/definitions/fileSystemDefinition</span></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><ul class="simple">
+<li><p>capacity</p></li>
+</ul>
+</td>
+<td colspan="3"><p>The capacity object describes the total available storage on the resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>totalBytes</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The total bytes of storage available on the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="simple">
+<li><p>defaultQuota</p></li>
+</ul>
+</td>
+<td colspan="3"><p>The defaultQuota object includes quota information about the available storage per</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>bytesPerUser</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="connectiondefinition">
+<h2>connectionDefinition<a class="headerlink" href="#connectiondefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p>label assigned to identify the device as an internet point of access</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>connectionProtocol</strong></p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>SSH, GLOBUS, HTTP, SFTP, SCP, IRODS</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>securityProtocol</strong></p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>PASSWORDS, SSHKEYS, X509, OAUTH2</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>port</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>useProxy</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>boolean</em></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>proxyHost</p></li>
+</ul>
+</td>
+<td colspan="2"><p><span class="xref std std-ref">#/definitions/hostNameDefinition</span></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>proxyPort</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="filesystemdefinition">
+<h2>fileSystemDefinition<a class="headerlink" href="#filesystemdefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>rootDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource to use as the virtual root directory for all interactions with the resource. No interaction will happen outside of the rootDir path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>homeDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource, relative to rootDir, to use as the virtual home directory for all interactions with the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>scratchDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource, relative to rootDir, to use as the virtual scratch space; i.e., where running jobs should write to while executing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>workDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource, relative to rootDir, to use as the virtual directory TODO</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>archiveDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource, relative to rootDir, to use as the virtual directory to write job outputs to after execution completes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dirpath">
+<h2>dirPath<a class="headerlink" href="#dirpath" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>the general form of the name of a file or directory, it specifies a unique location in the file system</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maxLength</p></td>
+<td><p>1024</p></td>
+</tr>
+<tr class="row-even"><td><p>minLength</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="computeDefinition.html" class="btn btn-neutral float-right" title="Compute Resource Object" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction to SCGI Inventory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mejia
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script>
+    var versions_json_url = ''
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
