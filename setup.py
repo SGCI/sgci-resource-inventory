@@ -11,5 +11,7 @@ setup(
             'pycodestyle >= 2.1.0'],
         'docs': [
             'sphinx >= 1.4',
-            'sphinx_rtd_theme']}
+            'sphinx_rtd_theme',
+            'sphinx-jsonschema',
+            'msmb_theme']}
 )
