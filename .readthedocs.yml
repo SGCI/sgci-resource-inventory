@@ -1,7 +1,4 @@
 # Don't build any extra formats
-formats:
-    - html
-    - pdf 
 python:
     extra_requirements:
         - sphinx-jsonschema
