@@ -124,11 +124,7 @@
       }
     },
     "storageDefinition": {
-      "$$description" : [
-        "The Storage Resource Object is used to describe storage properties of the resource.",
-        "All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such,",
-        "All resource descriptions must include values for the storage properties."
-      ],
+      "description" :"The Storage Resource Object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, All resource descriptions must include values for the storage properties.",
       "type": "object",
       "required": [
         "storageType",
@@ -137,10 +133,7 @@
       "properties": {
         "storageType": {
           "type": "string",
-          "$$description": [
-            "High-level category to which this storage resource belongs.",
-            "Determines additional properties that can be provided."
-          ],
+          "description": "High-level category to which this storage resource belongs. Determines additional properties that can be provided.",
           "enum": [
             "POSIX",
             "S3",
