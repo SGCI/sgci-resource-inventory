@@ -12,19 +12,24 @@
   ],
   "properties": {
     "schemaVersion": {
-      "type": "string"
+      "type": "string",
+      "description": "Version of the SGCI Resource Descriptions schema used for this description."
     },
     "id": {
+      "description":"Unique identifier for the resource across all SGCI resource descriptions.",
       "$ref": "#/definitions/resourceId"
     },
     "name": {
+      "description":"Human-readable, displayable name for the resource",
       "$ref": "#/definitions/resourceName"
     },
     "description": {
+      "description" : "Detalied description of the resource.",
       "type": "string",
       "maxLength": 2048
     },
     "resourceType": {
+      "description":"The type of resource",
       "type": "string",
       "enum": [
         "STORAGE",
@@ -32,6 +37,7 @@
       ]
     },
     "resource": {
+      "description":"The resource object includes details about the storage and compute capabilities of the resource",
       "oneOf": [
         {
           "$ref": "#/definitions/storageDefinition"
@@ -42,34 +48,41 @@
       ]
     },
     "host": {
+      "description":"Network addressable name (i.e., IP or hostname) to use when accessing the resource.",
       "$ref": "#/definitions/hostNameDefinition"
     },
     "connection": {
+      "description":"The connection object includes additional details about pertaining to securely accessing the resource.",
       "$ref": "#/definitions/connectionDefinition"
     }
   },
   "definitions": {
     "resourceId": {
+      "description":"Unique identifier for the resource across all SGCI resource descriptions.",
       "type": "string",
       "minLength": 1,
       "maxLength": 256
     },
     "resourceName": {
+      "description":"Human-readable, displayable name for the resource",
       "type": "string",
       "minLength": 1,
       "maxLength": 256
     },
     "hostNameDefinition": {
+      "description":"label assigned to identify the device as an internet point of access",
       "type": "string",
       "minLength": 1,
       "maxLength": 256
     },
     "dirPath": {
+      "description" : "the general form of the name of a file or directory, it specifies a unique location in the file system",
       "type": "string",
       "minLength": 1,
       "maxLength": 1024
     },
     "connectionDefinition": {
+      "description":"label assigned to identify the device as an internet point of access",
       "type": "object",
       "required": [
         "connectionProtocol",
@@ -111,6 +124,11 @@
       }
     },
     "storageDefinition": {
+      "$$description" : [
+        "The Storage Resource Object is used to describe storage properties of the resource.",
+        "All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such,",
+        "All resource descriptions must include values for the storage properties."
+      ],
       "type": "object",
       "required": [
         "storageType",
@@ -119,6 +137,10 @@
       "properties": {
         "storageType": {
           "type": "string",
+          "$$description": [
+            "High-level category to which this storage resource belongs.",
+            "Determines additional properties that can be provided."
+          ],
           "enum": [
             "POSIX",
             "S3",
@@ -126,20 +148,25 @@
           ]
         },
         "connection": {
+          "description": "The connection object includes additional details about pertaining to securely accessing the resource. When specified as part of the storage object, the connection details only apply when accessing the storage facilities of the resource.",
           "$ref": "#/definitions/connectionDefinition"
         },
         "fileSystem": {
+          "description" : "The fileSystem object contains information about the paths available on the storage resource.",
           "$ref": "#/definitions/fileSystemDefinition"
         },
         "capacity": {
+          "description" : "The capacity object describes the total available storage on the resource.",
           "type": "object",
           "properties": {
             "totalBytes": {
+              "description":"The total bytes of storage available on the resource.",
               "type": "integer"
             }
           }
         },
         "defaultQuota": {
+          "description" : "The defaultQuota object includes quota information about the available storage per",
           "type": "object",
           "properties": {
             "bytesPerUser": {
@@ -150,26 +177,33 @@
       }
     },
     "fileSystemDefinition": {
+      "description":"The fileSystem object contains information about the paths available on the storage resource.",
       "type": "object",
       "properties": {
         "rootDir": {
+          "description":"The path on the resource to use as the virtual root directory for all interactions with the resource. No interaction will happen outside of the rootDir path.",
           "$ref": "#/definitions/dirPath"
         },
         "homeDir": {
+          "description":"The path on the resource, relative to rootDir, to use as the virtual home directory for all interactions with the resource.",
           "$ref": "#/definitions/dirPath"
         },
         "scratchDir": {
+          "description":"The path on the resource, relative to rootDir, to use as the virtual scratch space; i.e., where running jobs should write to while executing.",
           "$ref": "#/definitions/dirPath"
         },
         "workDir": {
+          "description":"The path on the resource, relative to rootDir, to use as the virtual directory TODO",
           "$ref": "#/definitions/dirPath"
         },
         "archiveDir": {
+          "description":"The path on the resource, relative to rootDir, to use as the virtual directory to write job outputs to after execution completes.",
           "$ref": "#/definitions/dirPath"
         }
       }
     },
     "computeDefinition": {
+      "description" : "The Compute Resource Object is used to describe computational properties of the resource. Not all resources in the SGCI Resource Catalog are assumed to provide compute facilities.",
       "type": "object",
       "oneOf": [
         {
