@@ -86,9 +86,10 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to SCGI Inventory</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Storage Resource Object</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#filesystemdefinition">fileSystemDefinition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dirpath">dirPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connection-object-connectiondefinition">Connection Object / connectionDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-system-object-filesystemdefinition">File System Object / fileSystemDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#directory-path-object-dirpath">Directory Path Object / dirPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
@@ -169,9 +170,7 @@
 <col style="width: 25%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td colspan="4"><p>The Storage Resource Object is used to describe storage properties of the resource.
-All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such,
-All resource descriptions must include values for the storage properties.</p></td>
+<tr class="row-odd"><td colspan="4"><p>The storage object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, All resource descriptions must include values for the storage properties.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td colspan="3"><p><em>object</em></p></td>
@@ -182,8 +181,7 @@ All resource descriptions must include values for the storage properties.</p></t
 <li><p><strong>storageType</strong></p></li>
 </ul>
 </td>
-<td colspan="3"><p>High-level category to which this storage resource belongs.
-Determines additional properties that can be provided.</p></td>
+<td colspan="3"><p>High-level category to which this storage resource belongs. Determines additional properties that can be provided.</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td colspan="2"><p><em>string</em></p></td>
@@ -247,8 +245,8 @@ Determines additional properties that can be provided.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="connectiondefinition">
-<h2>connectionDefinition<a class="headerlink" href="#connectiondefinition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connection-object-connectiondefinition">
+<h2>Connection Object / connectionDefinition<a class="headerlink" href="#connection-object-connectiondefinition" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -256,65 +254,77 @@ Determines additional properties that can be provided.</p></td>
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td colspan="3"><p>label assigned to identify the device as an internet point of access</p></td>
+<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to stablish a connection with the resource</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
 <tr class="row-odd"><td colspan="3"><p>properties</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p><strong>connectionProtocol</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Communication protocol required to stablish a connection with the resources</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-odd"><td><p>enum</p></td>
+<tr class="row-even"><td><p>enum</p></td>
 <td><p>SSH, GLOBUS, HTTP, SFTP, SCP, IRODS</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p><strong>securityProtocol</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Cryptographic or access protocol enabled to access the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>enum</p></td>
 <td><p>PASSWORDS, SSHKEYS, X509, OAUTH2</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>port</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Communication endpoint</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>useProxy</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Some resources require to tunnel the connection throught a proxy host</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>boolean</em></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyHost</p></li>
 </ul>
 </td>
-<td colspan="2"><p><span class="xref std std-ref">#/definitions/hostNameDefinition</span></p></td>
+<td colspan="2"><p>The ProxyHost object includes details required to connect to the proxy tunneling</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/hostNameDefinition</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyPort</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Communication endpoint required by the proxy</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="filesystemdefinition">
-<h2>fileSystemDefinition<a class="headerlink" href="#filesystemdefinition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="file-system-object-filesystemdefinition">
+<h2>File System Object / fileSystemDefinition<a class="headerlink" href="#file-system-object-filesystemdefinition" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -371,8 +381,8 @@ Determines additional properties that can be provided.</p></td>
 </tbody>
 </table>
 </div>
-<div class="section" id="dirpath">
-<h2>dirPath<a class="headerlink" href="#dirpath" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="directory-path-object-dirpath">
+<h2>Directory Path Object / dirPath<a class="headerlink" href="#directory-path-object-dirpath" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -392,6 +402,54 @@ Determines additional properties that can be provided.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>SCIGAP Development Storage</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;sgciResources&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SCIGAP Development Storage&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;STORAGE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hosts&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;pgadev.scigap.org&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;fileSystems&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;workDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SCIGAP Staging Storage&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;STORAGE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hosts&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;pganew.staging.scigap.org&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;fileSystems&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;workDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 

@@ -8,23 +8,31 @@ The Storage Resource Object is used to describe storage properties of the resour
   :lift_description: True
 
 ---------------------------------------------------
- connectionDefinition
+Connection Object / connectionDefinition
 ---------------------------------------------------
-
 
 .. jsonschema:: ../../schema/resources-schema.json#/definitions/connectionDefinition
   :lift_description: True
 
 ---------------------------------------------------
- fileSystemDefinition
+File System Object / fileSystemDefinition
 ---------------------------------------------------
 
 .. jsonschema:: ../../schema/resources-schema.json#/definitions/fileSystemDefinition
   :lift_description: True
 
 ---------------------------------------------------
- dirPath
+Directory Path Object / dirPath
 ---------------------------------------------------
 
 .. jsonschema:: ../../schema/resources-schema.json#/definitions/dirPath
   :lift_description: True
+
+---------------------------------------------------
+Examples
+---------------------------------------------------
+
+**SCIGAP Development Storage**
+
+.. literalinclude :: ../../data/posix-storages.json
+  :language: javascript

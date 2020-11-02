@@ -82,7 +82,7 @@
       "maxLength": 1024
     },
     "connectionDefinition": {
-      "description":"label assigned to identify the device as an internet point of access",
+      "description":"The connection object defines all parameters required to stablish a connection with the resource",
       "type": "object",
       "required": [
         "connectionProtocol",
@@ -90,6 +90,7 @@
       ],
       "properties": {
         "connectionProtocol": {
+          "description": "Communication protocol required to stablish a connection with the resources",
           "type": "string",
           "enum": [
             "SSH",
@@ -101,6 +102,7 @@
           ]
         },
         "securityProtocol": {
+          "description": "Cryptographic or access protocol enabled to access the resource",
           "type": "string",
           "enum": [
             "PASSWORDS",
@@ -110,21 +112,25 @@
           ]
         },
         "port": {
+          "description": "Communication endpoint",
           "type": "integer"
         },
         "useProxy": {
+          "description": "Some resources require to tunnel the connection throught a proxy host",
           "type": "boolean"
         },
         "proxyHost": {
+          "description":"The ProxyHost object includes details required to connect to the proxy tunneling",
           "$ref": "#/definitions/hostNameDefinition"
         },
         "proxyPort": {
+          "description": "Communication endpoint required by the proxy",
           "type": "integer"
         }
       }
     },
     "storageDefinition": {
-      "description" :"The Storage Resource Object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, All resource descriptions must include values for the storage properties.",
+      "description" :"The storage object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, All resource descriptions must include values for the storage properties.",
       "type": "object",
       "required": [
         "storageType",
@@ -216,6 +222,7 @@
       ],
       "properties": {
         "schedulerType": {
+          "description": "Job scheduler configured on the resource",
           "type": "string",
           "enum": [
             "FORK",
@@ -224,32 +231,39 @@
           ]
         },
         "storageResource": {
+          "description":"The storage object includes details about the storage included with the compute resource",
           "$ref": "#/definitions/storageDefinition"
         },
         "connection": {
+          "description":"The connection object includes details about the storage and compute capabilities of the resource",
           "$ref": "#/definitions/connectionDefinition"
         },
         "executionCommands": {
+          "description":"This list defines all the commands required to execute any command on the resource",
           "type": "array",
           "items": {
             "$ref": "#/definitions/executionCommandDefinition"
           }
         },
         "batchSystem": {
+          "description":"The batchSystem object lists all parameters required by the batch scheduler system",
           "$ref": "#/definitions/batchSystemDefinition"
         },
         "forkSystem": {
+          "description":"The forkSystem object lists all parameters required by the fork scheduler system",
           "$ref": "#/definitions/forkSystemDefinition"
         }
       }
     },
     "executionCommandDefinition": {
+      "description":"The execution Command Object describes how a commnad should be executed on the resource",
       "type": "object",
       "required": [
         "commandType"
       ],
       "properties": {
         "commandType": {
+          "description":"label that describe the type of command supported by the resource",
           "type": "string",
           "examples": [
             "serial",
@@ -259,6 +273,7 @@
           ]
         },
         "commandPrefix": {
+          "description":"command to be preappend to the command in order to be executed as the commandType, e.g mpi->mpirun ",
           "type": "string",
           "examples": [
             "ibrun",
@@ -266,6 +281,7 @@
           ]
         },
         "moduleDependencies": {
+          "description":"list of modules to be loaded before execution of the command",
           "type": "array",
           "items": {
             "type": "string"
@@ -280,6 +296,7 @@
       ],
       "properties": {
         "jobManager": {
+          "description":"Job scheduler software installed on the resource no handle job requests",
           "type": "string",
           "enum": [
             "SLURM",
@@ -288,12 +305,14 @@
           ]
         },
         "commandPaths": {
+          "description":"List of commands supported by the Batch System",
           "type": "array",
           "items": {
             "$ref": "#/definitions/commandPathDefinition"
           }
         },
         "partitions": {
+          "description":"List of public partitions and queues installed on the Batch System",
           "type": "array",
           "items": {
             "$ref": "#/definitions/partitionDefinition"
@@ -309,6 +328,7 @@
       ],
       "properties": {
         "name": {
+          "description":"Label that defines the operation supported by the system",
           "type": "string",
           "examples": [
             "SUBMISSION",
@@ -321,6 +341,7 @@
           ]
         },
         "path": {
+          "description":"Complete path to the command that executes the operation",
           "type": "string"
         }
       }
@@ -332,6 +353,7 @@
       ],
       "properties": {
         "name": {
+          "description":"This label represents a queue or partition in the job scheduler",
           "type": "string",
           "examples": [
             "normal",
@@ -339,33 +361,43 @@
           ]
         },
         "totalNodes": {
+          "description":"Number of available nodes on this partition / queue",
           "type": "integer"
         },
         "nodeHardware": {
+          "description":"The nodeHardware object includes detailed information of the node",
           "$ref": "#/definitions/nodeHardwareDefinition"
         },
         "computeQuotas": {
+          "description":"queues or partition may have multiple restriction on the jobs allowed to run",
           "type": "object",
           "properties": {
             "maxJobsTotal": {
+              "description":"Maximum number of allowed jobs actively running on the partition",
               "type": "integer"
             },
             "maxJobsPerUser": {
+              "description":"Maximum number of allowed jobs actively running on the partition for a user",
               "type": "integer"
             },
             "maxNodesPerJob": {
+              "description":"Maximum number of nodes allowed to be used by a job",
               "type": "integer"
             },
             "maxTimePerJob": {
+              "description":"Maximum time a job can run without been killed",
               "type": "integer"
             },
             "maxMemoryPerJob": {
+              "description":"Maximum memory allocated for a job",
               "type": "string"
             },
             "maxCPUsPerJob": {
+              "description":"Maximum number of cpus allowed to be used by a job",
               "type": "integer"
             },
             "maxGPUsPerJob": {
+              "description":"Maximum number of gpus allowed to be used by a job",
               "type": "integer"
             }
           }
@@ -380,15 +412,18 @@
       "properties": {
         "systemType": {
           "type": "string",
+          "description":"OS installed on the resource",
           "enum": [
             "LINUX",
             "WINDOWS"
           ]
         },
         "version": {
+          "description":"Version of OS installed on the resource",
           "type": "string"
         },
         "nodeHardware": {
+          "description":"NodeHardware object contains details about the software installed on the resource",
           "$ref": "#/definitions/nodeHardwareDefinition"
         }
       }
@@ -397,22 +432,39 @@
       "type": "object",
       "properties": {
         "cpuType": {
-          "type": "string"
+          "description":"Type of cpus installed on the resource",
+          "type": "string",
+          "examples" : [
+            "Haswell CPUs @ 2.60GHz",
+            "Intel Xeon-E5"
+          ]
         },
         "cpuCount": {
+          "description":"Total number of cpus available on the resource",
           "type": "integer"
         },
         "gpuType": {
-          "type": "string"
+          "description":"Type of gpus installed on the resource",
+          "type": "string",
+          "examples" : [
+            "NVIDIA Tesla P100",
+            "NVIDIA Tesla M2090"
+          ]
         },
         "gpuCount": {
+          "description":"Total number of gpus available on the resource",
           "type": "integer"
         },
         "memoryType": {
+          "description":"Type of memory installed on the resource",
           "type": "string"
         },
         "memorySize": {
-          "type": "string"
+          "description":"Total memory available on the resource",
+          "type": "string",
+          "examples" : [
+            "64 GB"
+          ]
         }
       }
     }

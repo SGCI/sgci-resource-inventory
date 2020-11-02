@@ -364,58 +364,70 @@
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td colspan="3"><p>label assigned to identify the device as an internet point of access</p></td>
+<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to stablish a connection with the resource</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
 <tr class="row-odd"><td colspan="3"><p>properties</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p><strong>connectionProtocol</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Communication protocol required to stablish a connection with the resources</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-odd"><td><p>enum</p></td>
+<tr class="row-even"><td><p>enum</p></td>
 <td><p>SSH, GLOBUS, HTTP, SFTP, SCP, IRODS</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p><strong>securityProtocol</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Cryptographic or access protocol enabled to access the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>enum</p></td>
 <td><p>PASSWORDS, SSHKEYS, X509, OAUTH2</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>port</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Communication endpoint</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>useProxy</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Some resources require to tunnel the connection throught a proxy host</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>boolean</em></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyHost</p></li>
 </ul>
 </td>
-<td colspan="2"><p><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></p></td>
+<td colspan="2"><p>The ProxyHost object includes details required to connect to the proxy tunneling</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyPort</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Communication endpoint required by the proxy</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
 </tbody>
@@ -431,9 +443,7 @@
 <col style="width: 25%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td colspan="4"><p>The Storage Resource Object is used to describe storage properties of the resource.
-All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such,
-All resource descriptions must include values for the storage properties.</p></td>
+<tr class="row-odd"><td colspan="4"><p>The storage object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, All resource descriptions must include values for the storage properties.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td colspan="3"><p><em>object</em></p></td>
@@ -444,8 +454,7 @@ All resource descriptions must include values for the storage properties.</p></t
 <li><p><strong>storageType</strong></p></li>
 </ul>
 </td>
-<td colspan="3"><p>High-level category to which this storage resource belongs.
-Determines additional properties that can be provided.</p></td>
+<td colspan="3"><p>High-level category to which this storage resource belongs. Determines additional properties that can be provided.</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td colspan="2"><p><em>string</em></p></td>
@@ -584,49 +593,61 @@ Determines additional properties that can be provided.</p></td>
 </tr>
 <tr class="row-odd"><td colspan="3"><p>properties</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p>schedulerType</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Job scheduler configured on the resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-odd"><td><p>enum</p></td>
+<tr class="row-even"><td><p>enum</p></td>
 <td><p>FORK, BATCH, ON_DEMAND</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>storageResource</p></li>
 </ul>
 </td>
-<td colspan="2"><p><a class="reference internal" href="#storagedefinition">storageDefinition</a></p></td>
+<td colspan="2"><p>The storage object includes details about the storage included with the compute resource</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#storagedefinition">storageDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>connection</p></li>
 </ul>
 </td>
-<td colspan="2"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
+<td colspan="2"><p>The connection object includes details about the storage and compute capabilities of the resource</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p>executionCommands</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>This list defines all the commands required to execute any command on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>array</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>items</p></td>
 <td><p><a class="reference internal" href="#executioncommanddefinition">executionCommandDefinition</a></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>batchSystem</p></li>
 </ul>
 </td>
-<td colspan="2"><p><a class="reference internal" href="#batchsystemdefinition">batchSystemDefinition</a></p></td>
+<td colspan="2"><p>The batchSystem object lists all parameters required by the batch scheduler system</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#batchsystemdefinition">batchSystemDefinition</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>forkSystem</p></li>
 </ul>
 </td>
-<td colspan="2"><p><a class="reference internal" href="#forksystemdefinition">forkSystemDefinition</a></p></td>
+<td colspan="2"><p>The forkSystem object lists all parameters required by the fork scheduler system</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#forksystemdefinition">forkSystemDefinition</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -641,16 +662,20 @@ Determines additional properties that can be provided.</p></td>
 <col style="width: 25%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>type</p></td>
+<tr class="row-odd"><td colspan="4"><p>The execution Command Object describes how a commnad should be executed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td colspan="3"><p><em>object</em></p></td>
 </tr>
-<tr class="row-even"><td colspan="4"><p>properties</p></td>
+<tr class="row-odd"><td colspan="4"><p>properties</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="5"><ul class="simple">
+<tr class="row-even"><td rowspan="6"><ul class="simple">
 <li><p><strong>commandType</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="3"><p>label that describe the type of command supported by the resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td colspan="2"><p><em>string</em></p></td>
 </tr>
 <tr class="row-even"><td rowspan="4"><p>examples</p></td>
@@ -662,23 +687,27 @@ Determines additional properties that can be provided.</p></td>
 </tr>
 <tr class="row-odd"><td colspan="2"><p>ccm</p></td>
 </tr>
-<tr class="row-even"><td rowspan="3"><ul class="simple">
+<tr class="row-even"><td rowspan="4"><ul class="simple">
 <li><p>commandPrefix</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="3"><p>command to be preappend to the command in order to be executed as the commandType, e.g mpi-&gt;mpirun</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td colspan="2"><p><em>string</em></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<tr class="row-even"><td rowspan="2"><p>examples</p></td>
 <td colspan="2"><p>ibrun</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>mpirun</p></td>
+<tr class="row-odd"><td colspan="2"><p>mpirun</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p>moduleDependencies</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="3"><p>list of modules to be loaded before execution of the command</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td colspan="2"><p><em>array</em></p></td>
 </tr>
 <tr class="row-even"><td><p>items</p></td>
@@ -702,34 +731,40 @@ Determines additional properties that can be provided.</p></td>
 </tr>
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p><strong>jobManager</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Job scheduler software installed on the resource no handle job requests</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td><p>enum</p></td>
+<tr class="row-odd"><td><p>enum</p></td>
 <td><p>SLURM, SGE, PBS</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p>commandPaths</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>List of commands supported by the Batch System</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>array</em></p></td>
 </tr>
 <tr class="row-even"><td><p>items</p></td>
 <td><p><a class="reference internal" href="#commandpathdefinition">commandPathDefinition</a></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p>partitions</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>List of public partitions and queues installed on the Batch System</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>array</em></p></td>
 </tr>
-<tr class="row-even"><td><p>items</p></td>
+<tr class="row-odd"><td><p>items</p></td>
 <td><p><a class="reference internal" href="#partitiondefinition">partitionDefinition</a></p></td>
 </tr>
 </tbody>
@@ -749,33 +784,37 @@ Determines additional properties that can be provided.</p></td>
 </tr>
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="8"><ul class="simple">
+<tr class="row-odd"><td rowspan="9"><ul class="simple">
 <li><p><strong>name</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Label that defines the operation supported by the system</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td rowspan="7"><p>examples</p></td>
+<tr class="row-odd"><td rowspan="7"><p>examples</p></td>
 <td><p>SUBMISSION</p></td>
 </tr>
-<tr class="row-odd"><td><p>JOB_MONITORING</p></td>
+<tr class="row-even"><td><p>JOB_MONITORING</p></td>
 </tr>
-<tr class="row-even"><td><p>DELETION</p></td>
+<tr class="row-odd"><td><p>DELETION</p></td>
 </tr>
-<tr class="row-odd"><td><p>CHECK_JOB</p></td>
+<tr class="row-even"><td><p>CHECK_JOB</p></td>
 </tr>
-<tr class="row-even"><td><p>SHOW_QUEUE</p></td>
+<tr class="row-odd"><td><p>SHOW_QUEUE</p></td>
 </tr>
-<tr class="row-odd"><td><p>SHOW_RESERVATION</p></td>
+<tr class="row-even"><td><p>SHOW_RESERVATION</p></td>
 </tr>
-<tr class="row-even"><td><p>SHOW_START</p></td>
+<tr class="row-odd"><td><p>SHOW_START</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p><strong>path</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Complete path to the command that executes the operation</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
 </tbody>
@@ -796,87 +835,109 @@ Determines additional properties that can be provided.</p></td>
 </tr>
 <tr class="row-even"><td colspan="4"><p>properties</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
 <li><p><strong>name</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="3"><p>This label represents a queue or partition in the job scheduler</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><p>examples</p></td>
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
 <td colspan="2"><p>normal</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>large-mem</p></td>
+<tr class="row-even"><td colspan="2"><p>large-mem</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>totalNodes</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="3"><p>Number of available nodes on this partition / queue</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>integer</em></p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>nodeHardware</p></li>
 </ul>
 </td>
-<td colspan="3"><p><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></p></td>
+<td colspan="3"><p>The nodeHardware object includes detailed information of the node</p></td>
 </tr>
-<tr class="row-even"><td rowspan="9"><ul class="simple">
+<tr class="row-even"><td colspan="3"><p><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="17"><ul class="simple">
 <li><p>computeQuotas</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="3"><p>queues or partition may have multiple restriction on the jobs allowed to run</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
 <tr class="row-odd"><td colspan="3"><p>properties</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>maxJobsTotal</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Maximum number of allowed jobs actively running on the partition</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>maxJobsPerUser</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Maximum number of allowed jobs actively running on the partition for a user</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>maxNodesPerJob</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Maximum number of nodes allowed to be used by a job</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>maxTimePerJob</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Maximum time a job can run without been killed</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>maxMemoryPerJob</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Maximum memory allocated for a job</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>maxCPUsPerJob</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Maximum number of cpus allowed to be used by a job</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>maxGPUsPerJob</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Maximum number of gpus allowed to be used by a job</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
 </tbody>
@@ -896,28 +957,34 @@ Determines additional properties that can be provided.</p></td>
 </tr>
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p><strong>systemType</strong></p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>OS installed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td><p>enum</p></td>
+<tr class="row-odd"><td><p>enum</p></td>
 <td><p>LINUX, WINDOWS</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>version</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Version of OS installed on the resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>nodeHardware</p></li>
 </ul>
 </td>
-<td colspan="2"><p><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></p></td>
+<td colspan="2"><p>NodeHardware object contains details about the software installed on the resource</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -936,47 +1003,72 @@ Determines additional properties that can be provided.</p></td>
 </tr>
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
 <li><p>cpuType</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Type of cpus installed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<td><p>Haswell CPUs &#64; 2.60GHz</p></td>
+</tr>
+<tr class="row-even"><td><p>Intel Xeon-E5</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>cpuCount</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Total number of cpus available on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
 <li><p>gpuType</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Type of gpus installed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<td><p>NVIDIA Tesla P100</p></td>
+</tr>
+<tr class="row-even"><td><p>NVIDIA Tesla M2090</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>gpuCount</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Total number of gpus available on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>memoryType</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Type of memory installed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p>memorySize</p></li>
 </ul>
 </td>
-<td><p>type</p></td>
+<td colspan="2"><p>Total memory available on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td><p>64 GB</p></td>
 </tr>
 </tbody>
 </table>
