@@ -11,7 +11,6 @@ The Storage Resource Object is used to describe storage properties of the resour
  connectionDefinition
 ---------------------------------------------------
 
-
 .. jsonschema:: ../../schema/resources-schema.json#/definitions/connectionDefinition
   :lift_description: True
 
