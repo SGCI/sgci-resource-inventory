@@ -1,0 +1,1142 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Complete INVENTORY Schema &mdash; SGCI RESOURCE INVENTORY  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/versions.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Compute Resource Object" href="computeDefinition.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SGCI RESOURCE INVENTORY
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to SCGI Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storageDefinition.html">Storage Resource Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Complete INVENTORY Schema</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#resourceid">resourceId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resourcename">resourceName</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dirpath">dirPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storagedefinition">storageDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filesystemdefinition">fileSystemDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computedefinition">computeDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#executioncommanddefinition">executionCommandDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batchsystemdefinition">batchSystemDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commandpathdefinition">commandPathDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#partitiondefinition">partitionDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#forksystemdefinition">forkSystemDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SGCI RESOURCE INVENTORY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Complete INVENTORY Schema</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/schema.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="complete-inventory-schema">
+<h1>Complete INVENTORY Schema<a class="headerlink" href="#complete-inventory-schema" title="Permalink to this headline">¶</a></h1>
+<table class="docutils align-default" id="resources-schema-json">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p><a class="reference external" href="http://sciencegateways.org/SGCIResource">http://sciencegateways.org/SGCIResource</a></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>Schema for an SGCI Resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>schemaVersion</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Version of the SGCI Resource Descriptions schema used for this description.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>id</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Unique identifier for the resource across all SGCI resource descriptions.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#resourceid">resourceId</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>name</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Human-readable, displayable name for the resource</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#resourcename">resourceName</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p>description</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Detalied description of the resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maxLength</p></td>
+<td><p>2048</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p><strong>resourceType</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>The type of resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>enum</p></td>
+<td><p>STORAGE, COMPUTE</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>resource</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>The resource object includes details about the storage and compute capabilities of the resource</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>oneOf</p></td>
+<td><p><a class="reference internal" href="#storagedefinition">storageDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#computedefinition">computeDefinition</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>host</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Network addressable name (i.e., IP or hostname) to use when accessing the resource.</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>connection</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The connection object includes additional details about pertaining to securely accessing the resource.</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
+</tr>
+<tr class="row-even"><td><p>additionalProperties</p></td>
+<td colspan="2"><p>False</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="resourceid">
+<span id="resourceid"></span><h2>resourceId<a class="headerlink" href="#resourceid" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Unique identifier for the resource across all SGCI resource descriptions.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maxLength</p></td>
+<td><p>256</p></td>
+</tr>
+<tr class="row-even"><td><p>minLength</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="resourcename">
+<span id="resourcename"></span><h2>resourceName<a class="headerlink" href="#resourcename" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Human-readable, displayable name for the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maxLength</p></td>
+<td><p>256</p></td>
+</tr>
+<tr class="row-even"><td><p>minLength</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hostnamedefinition">
+<span id="hostnamedefinition"></span><h2>hostNameDefinition<a class="headerlink" href="#hostnamedefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>label assigned to identify the device as an internet point of access</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maxLength</p></td>
+<td><p>256</p></td>
+</tr>
+<tr class="row-even"><td><p>minLength</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dirpath">
+<span id="dirpath"></span><h2>dirPath<a class="headerlink" href="#dirpath" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>the general form of the name of a file or directory, it specifies a unique location in the file system</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maxLength</p></td>
+<td><p>1024</p></td>
+</tr>
+<tr class="row-even"><td><p>minLength</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="connectiondefinition">
+<span id="connectiondefinition"></span><h2>connectionDefinition<a class="headerlink" href="#connectiondefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to stablish a connection with the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p><strong>connectionProtocol</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Communication protocol required to stablish a connection with the resources</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>enum</p></td>
+<td><p>SSH, GLOBUS, HTTP, SFTP, SCP, IRODS</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>securityProtocol</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Cryptographic or access protocol enabled to access the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>PASSWORDS, SSHKEYS, X509, OAUTH2</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>port</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Communication endpoint</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>useProxy</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Some resources require to tunnel the connection throught a proxy host</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>boolean</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>proxyHost</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The ProxyHost object includes details required to connect to the proxy tunneling</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>proxyPort</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Communication endpoint required by the proxy</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="storagedefinition">
+<span id="storagedefinition"></span><h2>storageDefinition<a class="headerlink" href="#storagedefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="4"><p>The storage object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, All resource descriptions must include values for the storage properties.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="4"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p><strong>storageType</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>High-level category to which this storage resource belongs. Determines additional properties that can be provided.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>enum</p></td>
+<td colspan="2"><p>POSIX, S3, OBJECT_STORE</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>connection</p></li>
+</ul>
+</td>
+<td colspan="3"><p>The connection object includes additional details about pertaining to securely accessing the resource. When specified as part of the storage object, the connection details only apply when accessing the storage facilities of the resource.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>fileSystem</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p><a class="reference internal" href="#filesystemdefinition">fileSystemDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><ul class="simple">
+<li><p>capacity</p></li>
+</ul>
+</td>
+<td colspan="3"><p>The capacity object describes the total available storage on the resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>totalBytes</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The total bytes of storage available on the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="simple">
+<li><p>defaultQuota</p></li>
+</ul>
+</td>
+<td colspan="3"><p>The defaultQuota object includes quota information about the available storage per</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>bytesPerUser</p></li>
+</ul>
+</td>
+<td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="filesystemdefinition">
+<span id="filesystemdefinition"></span><h2>fileSystemDefinition<a class="headerlink" href="#filesystemdefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>rootDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource to use as the virtual root directory for all interactions with the resource. No interaction will happen outside of the rootDir path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>homeDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource, relative to rootDir, to use as the virtual home directory for all interactions with the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>scratchDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource, relative to rootDir, to use as the virtual scratch space; i.e., where running jobs should write to while executing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>workDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource, relative to rootDir, to use as the virtual directory TODO</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>archiveDir</p></li>
+</ul>
+</td>
+<td><p>The path on the resource, relative to rootDir, to use as the virtual directory to write job outputs to after execution completes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="computedefinition">
+<span id="computedefinition"></span><h2>computeDefinition<a class="headerlink" href="#computedefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p>The Compute Resource Object is used to describe computational properties of the resource. Not all resources in the SGCI Resource Catalog are assumed to provide compute facilities.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p>schedulerType</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Job scheduler configured on the resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>enum</p></td>
+<td><p>FORK, BATCH, ON_DEMAND</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>storageResource</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The storage object includes details about the storage included with the compute resource</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#storagedefinition">storageDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>connection</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The connection object includes details about the storage and compute capabilities of the resource</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p>executionCommands</p></li>
+</ul>
+</td>
+<td colspan="2"><p>This list defines all the commands required to execute any command on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#executioncommanddefinition">executionCommandDefinition</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>batchSystem</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The batchSystem object lists all parameters required by the batch scheduler system</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#batchsystemdefinition">batchSystemDefinition</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>forkSystem</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The forkSystem object lists all parameters required by the fork scheduler system</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#forksystemdefinition">forkSystemDefinition</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="executioncommanddefinition">
+<span id="executioncommanddefinition"></span><h2>executionCommandDefinition<a class="headerlink" href="#executioncommanddefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="4"><p>The execution Command Object describes how a commnad should be executed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="3"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="4"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="6"><ul class="simple">
+<li><p><strong>commandType</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>label that describe the type of command supported by the resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><p>examples</p></td>
+<td colspan="2"><p>serial</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>mpi</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>openmp</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>ccm</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="simple">
+<li><p>commandPrefix</p></li>
+</ul>
+</td>
+<td colspan="3"><p>command to be preappend to the command in order to be executed as the commandType, e.g mpi-&gt;mpirun</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>examples</p></td>
+<td colspan="2"><p>ibrun</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>mpirun</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p>moduleDependencies</p></li>
+</ul>
+</td>
+<td colspan="3"><p>list of modules to be loaded before execution of the command</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="batchsystemdefinition">
+<span id="batchsystemdefinition"></span><h2>batchSystemDefinition<a class="headerlink" href="#batchsystemdefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>jobManager</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Job scheduler software installed on the resource no handle job requests</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>SLURM, SGE, PBS</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p>commandPaths</p></li>
+</ul>
+</td>
+<td colspan="2"><p>List of commands supported by the Batch System</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#commandpathdefinition">commandPathDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p>partitions</p></li>
+</ul>
+</td>
+<td colspan="2"><p>List of public partitions and queues installed on the Batch System</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#partitiondefinition">partitionDefinition</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="commandpathdefinition">
+<span id="commandpathdefinition"></span><h2>commandPathDefinition<a class="headerlink" href="#commandpathdefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="9"><ul class="simple">
+<li><p><strong>name</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Label that defines the operation supported by the system</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="7"><p>examples</p></td>
+<td><p>SUBMISSION</p></td>
+</tr>
+<tr class="row-even"><td><p>JOB_MONITORING</p></td>
+</tr>
+<tr class="row-odd"><td><p>DELETION</p></td>
+</tr>
+<tr class="row-even"><td><p>CHECK_JOB</p></td>
+</tr>
+<tr class="row-odd"><td><p>SHOW_QUEUE</p></td>
+</tr>
+<tr class="row-even"><td><p>SHOW_RESERVATION</p></td>
+</tr>
+<tr class="row-odd"><td><p>SHOW_START</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>path</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Complete path to the command that executes the operation</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="partitiondefinition">
+<span id="partitiondefinition"></span><h2>partitionDefinition<a class="headerlink" href="#partitiondefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="3"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="4"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p><strong>name</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>This label represents a queue or partition in the job scheduler</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<td colspan="2"><p>normal</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>large-mem</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>totalNodes</p></li>
+</ul>
+</td>
+<td colspan="3"><p>Number of available nodes on this partition / queue</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>nodeHardware</p></li>
+</ul>
+</td>
+<td colspan="3"><p>The nodeHardware object includes detailed information of the node</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="17"><ul class="simple">
+<li><p>computeQuotas</p></li>
+</ul>
+</td>
+<td colspan="3"><p>queues or partition may have multiple restriction on the jobs allowed to run</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>maxJobsTotal</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Maximum number of allowed jobs actively running on the partition</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>maxJobsPerUser</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Maximum number of allowed jobs actively running on the partition for a user</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>maxNodesPerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Maximum number of nodes allowed to be used by a job</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>maxTimePerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Maximum time a job can run without been killed</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>maxMemoryPerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Maximum memory allocated for a job</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>maxCPUsPerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Maximum number of cpus allowed to be used by a job</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>maxGPUsPerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Maximum number of gpus allowed to be used by a job</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="forksystemdefinition">
+<span id="forksystemdefinition"></span><h2>forkSystemDefinition<a class="headerlink" href="#forksystemdefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>systemType</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>OS installed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>LINUX, WINDOWS</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>version</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Version of OS installed on the resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>nodeHardware</p></li>
+</ul>
+</td>
+<td colspan="2"><p>NodeHardware object contains details about the software installed on the resource</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="nodehardwaredefinition">
+<span id="nodehardwaredefinition"></span><h2>nodeHardwareDefinition<a class="headerlink" href="#nodehardwaredefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>cpuType</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Type of cpus installed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<td><p>Haswell CPUs &#64; 2.60GHz</p></td>
+</tr>
+<tr class="row-even"><td><p>Intel Xeon-E5</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>cpuCount</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Total number of cpus available on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>gpuType</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Type of gpus installed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>examples</p></td>
+<td><p>NVIDIA Tesla P100</p></td>
+</tr>
+<tr class="row-even"><td><p>NVIDIA Tesla M2090</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>gpuCount</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Total number of gpus available on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>memoryType</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Type of memory installed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p>memorySize</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Total memory available on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td><p>64 GB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="computeDefinition.html" class="btn btn-neutral float-left" title="Compute Resource Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mejia
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script>
+    var versions_json_url = ''
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

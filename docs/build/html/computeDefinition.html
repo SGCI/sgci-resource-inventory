@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compute Resource Object &mdash; SGCI RESOURCE INVENTORY  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/versions.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Complete INVENTORY Schema" href="schema.html" />
+    <link rel="prev" title="Storage Resource Object" href="storageDefinition.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SGCI RESOURCE INVENTORY
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to SCGI Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storageDefinition.html">Storage Resource Object</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Compute Resource Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#connection-object-connectiondefinition">Connection Object / connectionDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batch-system-object-batchsystemdefinition">Batch System Object / batchSystemDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fork-system-object-forksystemdefinition">fork System Object / forkSystemDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="schema.html">Complete INVENTORY Schema</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SGCI RESOURCE INVENTORY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Compute Resource Object</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/computeDefinition.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compute-resource-object">
+<h1>Compute Resource Object<a class="headerlink" href="#compute-resource-object" title="Permalink to this headline">¶</a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p>The Compute Resource Object is used to describe computational properties of the resource. Not all resources in the SGCI Resource Catalog are assumed to provide compute facilities.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p>schedulerType</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Job scheduler configured on the resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>enum</p></td>
+<td><p>FORK, BATCH, ON_DEMAND</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>storageResource</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The storage object includes details about the storage included with the compute resource</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><span class="xref std std-ref">#/definitions/storageDefinition</span></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>connection</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The connection object includes details about the storage and compute capabilities of the resource</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><span class="xref std std-ref">#/definitions/connectionDefinition</span></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p>executionCommands</p></li>
+</ul>
+</td>
+<td colspan="2"><p>This list defines all the commands required to execute any command on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p><span class="xref std std-ref">#/definitions/executionCommandDefinition</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>batchSystem</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The batchSystem object lists all parameters required by the batch scheduler system</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/batchSystemDefinition</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>forkSystem</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The forkSystem object lists all parameters required by the fork scheduler system</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/forkSystemDefinition</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="connection-object-connectiondefinition">
+<h2>Connection Object / connectionDefinition<a class="headerlink" href="#connection-object-connectiondefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to stablish a connection with the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p><strong>connectionProtocol</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Communication protocol required to stablish a connection with the resources</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>enum</p></td>
+<td><p>SSH, GLOBUS, HTTP, SFTP, SCP, IRODS</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>securityProtocol</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Cryptographic or access protocol enabled to access the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>PASSWORDS, SSHKEYS, X509, OAUTH2</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>port</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Communication endpoint</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>useProxy</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Some resources require to tunnel the connection throught a proxy host</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>boolean</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>proxyHost</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The ProxyHost object includes details required to connect to the proxy tunneling</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/hostNameDefinition</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>proxyPort</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Communication endpoint required by the proxy</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="batch-system-object-batchsystemdefinition">
+<h2>Batch System Object / batchSystemDefinition<a class="headerlink" href="#batch-system-object-batchsystemdefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>jobManager</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Job scheduler software installed on the resource no handle job requests</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>SLURM, SGE, PBS</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p>commandPaths</p></li>
+</ul>
+</td>
+<td colspan="2"><p>List of commands supported by the Batch System</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><span class="xref std std-ref">#/definitions/commandPathDefinition</span></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p>partitions</p></li>
+</ul>
+</td>
+<td colspan="2"><p>List of public partitions and queues installed on the Batch System</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p><span class="xref std std-ref">#/definitions/partitionDefinition</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="fork-system-object-forksystemdefinition">
+<h2>fork System Object / forkSystemDefinition<a class="headerlink" href="#fork-system-object-forksystemdefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>systemType</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>OS installed on the resource</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>LINUX, WINDOWS</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>version</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Version of OS installed on the resource</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>nodeHardware</p></li>
+</ul>
+</td>
+<td colspan="2"><p>NodeHardware object contains details about the software installed on the resource</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/nodeHardwareDefinition</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>SDSC Comet Cluster</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;sgciResources&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SDSC Comet Cluster&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;hosts&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;bigred3.uits.iu.edu&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span> <span class="s2">&quot;SLURM&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUBMISSION&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>TACC Stampede2 Cluster</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1001&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;tacc-stampede2-compute&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;WIP: Sample compute resource for TACC Stampede2 Cluster&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;stampede2.tacc.xsede.org&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;FORK&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;storageResource&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;fileSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;scratchDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/scratch&quot;</span>
+      <span class="p">}</span>
+     <span class="p">},</span>
+    <span class="s2">&quot;forkSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;systemType&quot;</span><span class="o">:</span> <span class="s2">&quot;LINUX&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="schema.html" class="btn btn-neutral float-right" title="Complete INVENTORY Schema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="storageDefinition.html" class="btn btn-neutral float-left" title="Storage Resource Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mejia
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script>
+    var versions_json_url = ''
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Don't build any extra formats
+python:
+   setup_py_install: true
+   extra_requirements:
+        - sphinx-jsonschema
+        - msmb_theme
+

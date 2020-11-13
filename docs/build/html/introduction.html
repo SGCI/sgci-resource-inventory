@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to SCGI Inventory &mdash; SGCI RESOURCE INVENTORY  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/versions.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Storage Resource Object" href="storageDefinition.html" />
+    <link rel="prev" title="Welcome to SGCI RESOURCE INVENTORY’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SGCI RESOURCE INVENTORY
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to SCGI Inventory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version">Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#definitions">Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specification-format">Specification Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration">Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storageDefinition.html">Storage Resource Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema.html">Complete INVENTORY Schema</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SGCI RESOURCE INVENTORY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction to SCGI Inventory</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-scgi-inventory">
+<h1>Introduction to SCGI Inventory<a class="headerlink" href="#introduction-to-scgi-inventory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version">
+<h2>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<p>This is version 0.1.0 of the SGCI Resource Description Specification schema. &lt;LICENSE INFO&gt;</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The user-facing components of the Cyberinfrastructure (CI) ecosystem, science gateways and scientific workflow systems,
+share a common need of interfacing with physical resources (storage systems and execution environments) to manage data and execute codes (applications).</p>
+<p>However, there is no uniform, platform-independent way to describe either the resources or the applications. To address this, we propose uniform semantics for describing resources and applications that will be relevant to a diverse set of stakeholders.</p>
+<p>The SGCI Resource Description Specification provides a standard way for institutions and service providers to describe storage and computing infrastructure broadly available to the research computing and science gateway community. SGCI Resource descriptions provide a foundation for interoperability across gateway components and other cyberinfrastructure software.</p>
+<p>The current, initial version of the resource description language focuses on “traditional” HPC and high-throughput storage and computing resources</p>
+</div>
+<div class="section" id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<p>&lt;definitions&gt;</p>
+</div>
+<div class="section" id="specification-format">
+<h2>Specification Format<a class="headerlink" href="#specification-format" title="Permalink to this headline">¶</a></h2>
+<p>SGCI resource descriptions are JSON documents that conform to the JSONSchema definition describing a particular version of the SGCI Resource Description Specification.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>Carbonate HPC</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;sgciResources&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Carbonate HPC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span> <span class="s2">&quot;SLURM&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUBMISSION&quot;</span>
+                <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>SDSC Comet Cluster</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;sgciResources&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SDSC Comet Cluster&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;hosts&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;bigred3.uits.iu.edu&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span> <span class="s2">&quot;SLURM&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUBMISSION&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>TACC Stampede2 Cluster</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1001&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;tacc-stampede2-compute&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;WIP: Sample compute resource for TACC Stampede2 Cluster&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;stampede2.tacc.xsede.org&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;FORK&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;storageResource&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;fileSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;scratchDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/scratch&quot;</span>
+      <span class="p">}</span>
+     <span class="p">},</span>
+    <span class="s2">&quot;forkSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;systemType&quot;</span><span class="o">:</span> <span class="s2">&quot;LINUX&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/SGCI.png"><img alt="_images/SGCI.png" src="_images/SGCI.png" style="width: 600px;" /></a>
+<p>The SCGI Inventory is currently been integrated with Airavata, HUBzero ®  , and Tapis. We expect the inventory to be adapted by others soon.</p>
+<p><strong>Links:</strong></p>
+<p><a class="reference external" href="https://github.com/SGCI/sgci-resource-inventory">https://github.com/SGCI/sgci-resource-inventory</a></p>
+<p><a class="reference external" href="https://github.com/SGCI/sgci-resource-inventory-cache-service">https://github.com/SGCI/sgci-resource-inventory-cache-service</a></p>
+<p><strong>Get Involved!</strong></p>
+<p>Issues, Comments, PRs all welcome!</p>
+<p>SGCI: <a class="reference external" href="mailto:help&#37;&#52;&#48;sciencegateways&#46;org">help<span>&#64;</span>sciencegateways<span>&#46;</span>org</a></p>
+<p>Email: jstubbs at tacc.utexas.edu, smarru at iu.edu, dmejiapa at purdue.edu</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="storageDefinition.html" class="btn btn-neutral float-right" title="Storage Resource Object" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to SGCI RESOURCE INVENTORY’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mejia
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script>
+    var versions_json_url = ''
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
