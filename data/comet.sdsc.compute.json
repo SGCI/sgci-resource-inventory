@@ -1,0 +1,29 @@
+{
+      "schemaVersion": "0.0.1",
+      "id": "3",
+      "name": "SDSC Comet Cluster",
+      "resourceType": "COMPUTE",
+      "host": "bigred3.uits.iu.edu",
+      "resourceType": "COMPUTE",
+      "resource": {
+        "schedulerType": "BATCH",
+        "connection": {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        },
+        "storageType": "POSIX",
+           "fileSystem": {
+              "rootDir": "/",
+               "scratchDir": "/scratch"
+           },  
+        "batchSystem": {
+          "jobManager": "SLURM",
+          "commandPaths": [
+            {
+              "name": "SUBMISSION"
+            }
+          ]
+        }
+      }
+}

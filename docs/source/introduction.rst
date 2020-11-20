@@ -34,23 +34,42 @@ SGCI resource descriptions are JSON documents that conform to the JSONSchema def
 ---------------------------------------------------
 Examples
 ---------------------------------------------------
+Here are some first examples.
 
-**Carbonate HPC**
+**SCIGAP Development Storage**
 
-.. literalinclude :: ../../data/compute.json
+A server or virtual machine providing storage accessible over SSH can be registered as resources with ``"resourceType": "STORAGE"``.
+The following example describes the storage used by the SCIGAP framework in its development environment.
+
+.. literalinclude :: ../../data/scigap-dev.iu.storage.json
    :language: javascript
 
 
-**SDSC Comet Cluster**
+**Carbonate HPC**
 
-.. literalinclude :: ../../data/comet.sdsc.xsede.json
-  :language: javascript
+Resources providing compute capabilities are registered as resources with ``"resourceType": "COMPUTE"``.
+Carbonate is Indiana University's large-memory computer cluster:
+
+.. literalinclude :: ../../data/caronateHPC.iu.compute.json
+   :language: javascript
 
 
 **TACC Stampede2 Cluster**
 
-.. literalinclude :: ../../data/stampede2.tacc.xsede.json
+In the following example of the TACC Stampede2 supercomputer, we add descriptions of the partitions (queues).
+These are optional but very valuable for science gateway projects.
+
+.. literalinclude :: ../../data/stampede2.tacc.compute.json
   :language: javascript
+
+
+**SDSC Comet Cluster**
+
+Our final example is of the SDSC Comet machine:
+
+.. literalinclude :: ../../data/comet.sdsc.compute.json
+  :language: javascript
+
 
 
 .. |reg|    unicode:: U+000AE .. REGISTERED SIGN

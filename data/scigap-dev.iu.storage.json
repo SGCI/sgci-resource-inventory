@@ -1,0 +1,19 @@
+{
+    "schemaVersion": "0.0.1",
+    "id": "1",
+    "name": "SCIGAP Development Storage",
+    "resourceType": "STORAGE",
+    "host": "pgadev.scigap.org",
+    "connection": {
+      "connectionProtocol": "SSH",
+      "securityProtocol": "SSHKEYS",
+      "port": 22
+    },
+    "resource": {
+      "storageType": "POSIX",
+      "fileSystem":
+        {
+          "rootDir": "/",
+        }
+    }
+}

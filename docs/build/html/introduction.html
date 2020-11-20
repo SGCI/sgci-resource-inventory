@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,30 +12,28 @@
   
 
   
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/js/versions.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/js/versions.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Storage Resource Object" href="storageDefinition.html" />
@@ -52,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SGCI RESOURCE INVENTORY
+            <a href="index.html" class="icon icon-home"> SGCI RESOURCE INVENTORY
           
 
           
@@ -75,7 +74,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -101,7 +99,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -140,7 +137,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
       <li>Introduction to SCGI Inventory</li>
     
@@ -185,51 +182,133 @@ share a common need of interfacing with physical resources (storage systems and 
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<p><strong>Carbonate HPC</strong></p>
+<p>Here are some first examples.</p>
+<p><strong>SCIGAP Development Storage</strong></p>
+<p>A server or virtual machine providing storage accessible over SSH can be registered as resources with <code class="docutils literal notranslate"><span class="pre">&quot;resourceType&quot;:</span> <span class="pre">&quot;STORAGE&quot;</span></code>.
+The following example describes the storage used by the SCIGAP framework in its development environment.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;sgciResources&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SCIGAP Development Storage&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;STORAGE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;pgadev.scigap.org&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;fileSystem&quot;</span><span class="o">:</span>
         <span class="p">{</span>
-            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Carbonate HPC&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
-                <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
-            <span class="p">},</span>
-            <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
-                <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span> <span class="s2">&quot;SLURM&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUBMISSION&quot;</span>
-                <span class="p">}</span>
-                <span class="p">]</span>
-            <span class="p">}</span>
-            <span class="p">}</span>
+          <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
         <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Carbonate HPC</strong></p>
+<p>Resources providing compute capabilities are registered as resources with <code class="docutils literal notranslate"><span class="pre">&quot;resourceType&quot;:</span> <span class="pre">&quot;COMPUTE&quot;</span></code>.
+Carbonate is Indiana University’s large-memory computer cluster:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Carbonate HPC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;carbonate.uits.iu.edu&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fileSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;scratchDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/scratch&quot;</span>
+        <span class="p">},</span>
+      <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span> <span class="s2">&quot;SLURM&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+              <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUBMISSION&quot;</span>
+          <span class="p">}</span>
+          <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>TACC Stampede2 Cluster</strong></p>
+<p>In the following example of the TACC Stampede2 supercomputer, we add descriptions of the partitions (queues).
+These are optional but very valuable for science gateway projects.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1001&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;tacc-stampede2-compute&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;WIP: Sample compute resource for TACC Stampede2 Cluster&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;stampede2.tacc.xsede.org&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;fileSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;scratchDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/scratch&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;workDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/work&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;homeDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/home&quot;</span>
+      <span class="p">},</span>
+    <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span> <span class="s2">&quot;SLURM&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUBMISSION&quot;</span>
+        <span class="p">}],</span>
+        <span class="s2">&quot;partitions&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;totalNodes&quot;</span><span class="o">:</span> <span class="mi">256</span><span class="p">,</span>
+            <span class="s2">&quot;nodeHardware&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;cpuType&quot;</span><span class="o">:</span> <span class="s2">&quot;KNL CPUs @ 1.40GHz&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;cpuCount&quot;</span><span class="o">:</span> <span class="mi">68</span><span class="p">,</span>
+              <span class="s2">&quot;memoryType&quot;</span><span class="o">:</span> <span class="s2">&quot;DDR4&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;memorySize&quot;</span><span class="o">:</span> <span class="s2">&quot;96 GB&quot;</span>
+            
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>SDSC Comet Cluster</strong></p>
+<p>Our final example is of the SDSC Comet machine:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;sgciResources&quot;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
+      <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
       <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SDSC Comet Cluster&quot;</span><span class="p">,</span>
       <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;bigred3.uits.iu.edu&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
       <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;hosts&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;bigred3.uits.iu.edu&quot;</span>
-        <span class="p">},</span>
         <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
         <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
           <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
           <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
           <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
         <span class="p">},</span>
+        <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;fileSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;scratchDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/scratch&quot;</span>
+           <span class="p">},</span>  
         <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
           <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span> <span class="s2">&quot;SLURM&quot;</span><span class="p">,</span>
           <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[</span>
@@ -239,37 +318,6 @@ share a common need of interfacing with physical resources (storage systems and 
           <span class="p">]</span>
         <span class="p">}</span>
       <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>TACC Stampede2 Cluster</strong></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1001&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;tacc-stampede2-compute&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;WIP: Sample compute resource for TACC Stampede2 Cluster&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;stampede2.tacc.xsede.org&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;FORK&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;storageResource&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;fileSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;scratchDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/scratch&quot;</span>
-      <span class="p">}</span>
-     <span class="p">},</span>
-    <span class="s2">&quot;forkSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;systemType&quot;</span><span class="o">:</span> <span class="s2">&quot;LINUX&quot;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -308,7 +356,6 @@ share a common need of interfacing with physical resources (storage systems and 
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2020, Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mejia
 
     </p>
