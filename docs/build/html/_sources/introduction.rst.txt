@@ -41,7 +41,7 @@ Here are some first examples.
 A server or virtual machine providing storage accessible over SSH can be registered as resources with ``"resourceType": "STORAGE"``.
 The following example describes the storage used by the SCIGAP framework in its development environment.
 
-.. literalinclude :: ../../data/scigap-dev.iu.storage.json
+.. literalinclude :: ../../data/airavata.apache.org/scigap-dev.json
    :language: javascript
 
 
@@ -50,7 +50,7 @@ The following example describes the storage used by the SCIGAP framework in its 
 Resources providing compute capabilities are registered as resources with ``"resourceType": "COMPUTE"``.
 Carbonate is Indiana University's large-memory computer cluster:
 
-.. literalinclude :: ../../data/caronateHPC.iu.compute.json
+.. literalinclude :: ../../data/airavata.apache.org/carbonateHPC.json
    :language: javascript
 
 
@@ -59,7 +59,7 @@ Carbonate is Indiana University's large-memory computer cluster:
 In the following example of the TACC Stampede2 supercomputer, we add descriptions of the partitions (queues).
 These are optional but very valuable for science gateway projects.
 
-.. literalinclude :: ../../data/stampede2.tacc.compute.json
+.. literalinclude :: ../../data/tapis.io/stampede2-compute.json
   :language: javascript
 
 
@@ -67,7 +67,7 @@ These are optional but very valuable for science gateway projects.
 
 Our final example is of the SDSC Comet machine:
 
-.. literalinclude :: ../../data/comet.sdsc.compute.json
+.. literalinclude :: ../../data/sdsc.edu/comet.json
   :language: javascript
 
 

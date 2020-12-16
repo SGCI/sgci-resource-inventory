@@ -188,7 +188,9 @@ share a common need of interfacing with physical resources (storage systems and 
 The following example describes the storage used by the SCIGAP framework in its development environment.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;resources.sciencegateways.org.airavata.apache.org.scigap-dev&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;virtualOrganizationId&quot;</span><span class="o">:</span> <span class="s2">&quot;airavata.apache.org&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;virtualOrganizationResourceId&quot;</span><span class="o">:</span> <span class="s2">&quot;scigap-dev&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SCIGAP Development Storage&quot;</span><span class="p">,</span>
     <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;STORAGE&quot;</span><span class="p">,</span>
     <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;pgadev.scigap.org&quot;</span><span class="p">,</span>
@@ -212,7 +214,9 @@ The following example describes the storage used by the SCIGAP framework in its 
 Carbonate is Indiana University’s large-memory computer cluster:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;resources.sciencegateways.org.airavata.apache.org.carbonateHPC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;virtualOrganizationId&quot;</span><span class="o">:</span> <span class="s2">&quot;airavata.apache.org&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;virtualOrganizationResourceId&quot;</span><span class="o">:</span> <span class="s2">&quot;carbonateHPC&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Carbonate HPC&quot;</span><span class="p">,</span>
     <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;carbonate.uits.iu.edu&quot;</span><span class="p">,</span>
     <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
@@ -245,11 +249,13 @@ Carbonate is Indiana University’s large-memory computer cluster:</p>
 These are optional but very valuable for science gateway projects.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1001&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;resources.sciencegateways.org.tapis.io.stampede2-compute&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;virtualOrganizationId&quot;</span><span class="o">:</span> <span class="s2">&quot;tapis.io&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;virtualOrganizationResourceId&quot;</span><span class="o">:</span> <span class="s2">&quot;stampede2-compute&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;tacc-stampede2-compute&quot;</span><span class="p">,</span>
   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;WIP: Sample compute resource for TACC Stampede2 Cluster&quot;</span><span class="p">,</span>
   <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;stampede2.tacc.xsede.org&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;stampede2.tacc.utexas.edu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
     <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -292,11 +298,12 @@ These are optional but very valuable for science gateway projects.</p>
 <p>Our final example is of the SDSC Comet machine:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
       <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;resources.sciencegateways.org.sdsc.edu.comet&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;virtualOrganizationId&quot;</span><span class="o">:</span> <span class="s2">&quot;sdsc.edu&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;virtualOrganizationResourceId&quot;</span><span class="o">:</span> <span class="s2">&quot;comet&quot;</span><span class="p">,</span>
       <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SDSC Comet Cluster&quot;</span><span class="p">,</span>
       <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;bigred3.uits.iu.edu&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;comet.sdsc.edu&quot;</span><span class="p">,</span>
       <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
         <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>

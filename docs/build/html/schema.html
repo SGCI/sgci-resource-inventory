@@ -86,6 +86,8 @@
 <li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Complete INVENTORY Schema</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#resourceid">resourceId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtualorganizationid">virtualOrganizationId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtualorganizationresourceid">virtualOrganizationResourceId</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resourcename">resourceName</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dirpath">dirPath</a></li>
@@ -192,74 +194,111 @@
 <tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="5"><ul class="simple">
 <li><p><strong>id</strong></p></li>
 </ul>
 </td>
-<td colspan="2"><p>Unique identifier for the resource across all SGCI resource descriptions.</p></td>
+<td colspan="2"><p>Unique identifier for the resource across all SGCI resource descriptions. The id has the following format: resources.sciencegateways.org.&lt;virtualOrganizationId&gt;.&lt;virtualOrganizationResourceId&gt; where &lt;virtualOrganizationId&gt; is the id of the virtual organization owning the resource and &lt;virtualOrganizationResourceId&gt; is an identifier provided by the virtual organization that is unique within the virtual organization.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#resourceid">resourceId</a></p></td>
+<tr class="row-even"><td rowspan="3"><p>examples</p></td>
+<td><p>resources.sciencegateways.org.airavata.apache.org.7</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td><p>resources.sciencegateways.org.tapis.io.stampede2</p></td>
+</tr>
+<tr class="row-even"><td><p>resources.sciencegateways.org.xsede.org.04ea2969-f450-48db-a7ce-df69c761dbf4</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#resourceid">resourceId</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="5"><ul class="simple">
+<li><p>virtualOrganizationId</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Unique identifier for the virtual organization owning this resource definition. The virtualOrganizationId should be a fully qualified domain controlled by the organization.</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>examples</p></td>
+<td><p>airavata.apache.org</p></td>
+</tr>
+<tr class="row-even"><td><p>tapis.io</p></td>
+</tr>
+<tr class="row-odd"><td><p>xsede.org</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#virtualorganizationid">virtualOrganizationId</a></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><ul class="simple">
+<li><p>virtualOrganizationResourceId</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Identifier ensuring the resource id is unique within the virtual organization.</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>examples</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>stampede2</p></td>
+</tr>
+<tr class="row-even"><td><p>04ea2969-f450-48db-a7ce-df69c761dbf4</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#virtualorganizationresourceid">virtualOrganizationResourceId</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p><strong>name</strong></p></li>
 </ul>
 </td>
 <td colspan="2"><p>Human-readable, displayable name for the resource</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#resourcename">resourceName</a></p></td>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#resourcename">resourceName</a></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p>description</p></li>
 </ul>
 </td>
 <td colspan="2"><p>Detalied description of the resource.</p></td>
 </tr>
-<tr class="row-even"><td><p>type</p></td>
+<tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-odd"><td><p>maxLength</p></td>
+<tr class="row-even"><td><p>maxLength</p></td>
 <td><p>2048</p></td>
 </tr>
-<tr class="row-even"><td rowspan="3"><ul class="simple">
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p><strong>resourceType</strong></p></li>
 </ul>
 </td>
 <td colspan="2"><p>The type of resource</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td><p>enum</p></td>
+<tr class="row-odd"><td><p>enum</p></td>
 <td><p>STORAGE, COMPUTE</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p><strong>resource</strong></p></li>
 </ul>
 </td>
 <td colspan="2"><p>The resource object includes details about the storage and compute capabilities of the resource</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><p>oneOf</p></td>
+<tr class="row-odd"><td rowspan="2"><p>oneOf</p></td>
 <td><p><a class="reference internal" href="#storagedefinition">storageDefinition</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#computedefinition">computeDefinition</a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#computedefinition">computeDefinition</a></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>host</p></li>
 </ul>
 </td>
 <td colspan="2"><p>Network addressable name (i.e., IP or hostname) to use when accessing the resource.</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></p></td>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>connection</p></li>
 </ul>
 </td>
 <td colspan="2"><p>The connection object includes additional details about pertaining to securely accessing the resource.</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
 </tr>
-<tr class="row-even"><td><p>additionalProperties</p></td>
+<tr class="row-odd"><td><p>additionalProperties</p></td>
 <td colspan="2"><p>False</p></td>
 </tr>
 </tbody>
@@ -278,7 +317,51 @@
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>maxLength</p></td>
+<td><p>1024</p></td>
+</tr>
+<tr class="row-even"><td><p>minLength</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="virtualorganizationid">
+<span id="virtualorganizationid"></span><h2>virtualOrganizationId<a class="headerlink" href="#virtualorganizationid" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Unique identifier for an SGCI virtual organization that will own resource descriptions.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maxLength</p></td>
 <td><p>256</p></td>
+</tr>
+<tr class="row-even"><td><p>minLength</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="virtualorganizationresourceid">
+<span id="virtualorganizationresourceid"></span><h2>virtualOrganizationResourceId<a class="headerlink" href="#virtualorganizationresourceid" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Unique identifier for an SGCI virtual organization that will own resource descriptions.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maxLength</p></td>
+<td><p>512</p></td>
 </tr>
 <tr class="row-even"><td><p>minLength</p></td>
 <td><p>1</p></td>

@@ -16,8 +16,31 @@
       "description": "Version of the SGCI Resource Descriptions schema used for this description."
     },
     "id": {
-      "description":"Unique identifier for the resource across all SGCI resource descriptions.",
-      "$ref": "#/definitions/resourceId"
+      "description":"Unique identifier for the resource across all SGCI resource descriptions. The id has the following format: resources.sciencegateways.org.<virtualOrganizationId>.<virtualOrganizationResourceId> where <virtualOrganizationId> is the id of the virtual organization owning the resource and <virtualOrganizationResourceId> is an identifier provided by the virtual organization that is unique within the virtual organization.",
+      "$ref": "#/definitions/resourceId",
+      "examples": [
+        "resources.sciencegateways.org.airavata.apache.org.7",
+        "resources.sciencegateways.org.tapis.io.stampede2",
+        "resources.sciencegateways.org.xsede.org.04ea2969-f450-48db-a7ce-df69c761dbf4"
+      ]
+    },
+    "virtualOrganizationId": {
+      "description":"Unique identifier for the virtual organization owning this resource definition. The virtualOrganizationId should be a fully qualified domain controlled by the organization.",
+      "$ref": "#/definitions/virtualOrganizationId",
+      "examples": [
+        "airavata.apache.org",
+        "tapis.io",
+        "xsede.org"
+      ]
+    },
+    "virtualOrganizationResourceId": {
+      "description":"Identifier ensuring the resource id is unique within the virtual organization.",
+      "$ref": "#/definitions/virtualOrganizationResourceId",
+      "examples": [
+        "7",
+        "stampede2",
+        "04ea2969-f450-48db-a7ce-df69c761dbf4"
+      ]
     },
     "name": {
       "description":"Human-readable, displayable name for the resource",
@@ -61,7 +84,19 @@
       "description":"Unique identifier for the resource across all SGCI resource descriptions.",
       "type": "string",
       "minLength": 1,
+      "maxLength": 1024
+    },
+    "virtualOrganizationId": {
+      "description":"Unique identifier for an SGCI virtual organization that will own resource descriptions.",
+      "type": "string",
+      "minLength": 1,
       "maxLength": 256
+    },
+    "virtualOrganizationResourceId": {
+      "description":"Unique identifier for an SGCI virtual organization that will own resource descriptions.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
     },
     "resourceName": {
       "description":"Human-readable, displayable name for the resource",

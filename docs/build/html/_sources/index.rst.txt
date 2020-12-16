@@ -10,6 +10,7 @@ Welcome to SGCI RESOURCE INVENTORY's documentation!
    :maxdepth: 1
 
    introduction
+   virtualOrgs
    storageDefinition
    computeDefinition
    schema
