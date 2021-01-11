@@ -5,84 +5,61 @@
   "additionalProperties": false,
   "type": "object",
   "required": [
-    "id",
+    "schemaVersion",
+    "host",
     "name",
-    "resourceType",
-    "resource"
+    "storageResources"
   ],
   "properties": {
     "schemaVersion": {
       "type": "string",
       "description": "Version of the SGCI Resource Descriptions schema used for this description."
     },
-    "id": {
-      "description":"Unique identifier for the resource across all SGCI resource descriptions.",
-      "$ref": "#/definitions/resourceId"
+    "host": {
+      "description": "Network addressable name (hostname) serving as a unique identifier for the resource across all SGCI resource descriptions.",
+      "$ref": "#/definitions/hostName"
     },
     "name": {
-      "description":"Human-readable, displayable name for the resource",
+      "description": "Human-readable, displayable name for the resource",
       "$ref": "#/definitions/resourceName"
     },
     "description": {
-      "description" : "Detalied description of the resource.",
+      "description": "Detalied description of the resource.",
       "type": "string",
       "maxLength": 2048
     },
-    "resourceType": {
-      "description":"The type of resource",
-      "type": "string",
-      "enum": [
-        "STORAGE",
-        "COMPUTE"
-      ]
-    },
-    "resource": {
-      "description":"The resource object includes details about the storage and compute capabilities of the resource",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/storageDefinition"
-        },
-        {
-          "$ref": "#/definitions/computeDefinition"
-        }
-      ]
-    },
-    "host": {
-      "description":"Network addressable name (i.e., IP or hostname) to use when accessing the resource.",
-      "$ref": "#/definitions/hostNameDefinition"
-    },
     "connection": {
-      "description":"The connection object includes additional details about pertaining to securely accessing the resource.",
+      "description": "The connection object includes additional details pertaining to securely accessing the resource.",
       "$ref": "#/definitions/connectionDefinition"
+    },
+    "storageResources": {
+      "$ref": "#/definitions/storageDefinitionList"
+    },
+    "computeResources": {
+      "$ref": "#/definitions/computeDefinitionList"
     }
   },
   "definitions": {
-    "resourceId": {
-      "description":"Unique identifier for the resource across all SGCI resource descriptions.",
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 256
-    },
     "resourceName": {
-      "description":"Human-readable, displayable name for the resource",
+      "description": "Human-readable, displayable name for the resource",
       "type": "string",
       "minLength": 1,
       "maxLength": 256
     },
-    "hostNameDefinition": {
-      "description":"label assigned to identify the device as an internet point of access",
+    "hostName": {
+      "description": "label assigned to identify the device as an internet point of access",
       "type": "string",
       "minLength": 1,
       "maxLength": 256
     },
     "dirPath": {
-      "description" : "the general form of the name of a file or directory, it specifies a unique location in the file system",
+      "description": "the general form of the name of a file or directory, it specifies a unique location in the file system",
       "type": "string",
       "minLength": 1,
       "maxLength": 1024
     },
     "connectionDefinition": {
-      "description":"The connection object defines all parameters required to stablish a connection with the resource",
+      "description": "The connection object defines all parameters required to establish a connection with the resource",
       "type": "object",
       "required": [
         "connectionProtocol",
@@ -121,7 +98,7 @@
         },
         "proxyHost": {
           "description":"The ProxyHost object includes details required to connect to the proxy tunneling",
-          "$ref": "#/definitions/hostNameDefinition"
+          "$ref": "#/definitions/hostName"
         },
         "proxyPort": {
           "description": "Communication endpoint required by the proxy",
@@ -129,8 +106,20 @@
         }
       }
     },
+    "storageDefinitionList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/storageDefinition"
+      }
+    },
+    "computeDefinitionList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/computeDefinition"
+      }
+    },
     "storageDefinition": {
-      "description" :"The storage object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, All resource descriptions must include values for the storage properties.",
+      "description": "The storage object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, All resource descriptions must include values for the storage properties.",
       "type": "object",
       "required": [
         "storageType",
@@ -142,20 +131,19 @@
           "description": "High-level category to which this storage resource belongs. Determines additional properties that can be provided.",
           "enum": [
             "POSIX",
-            "S3",
-            "OBJECT_STORE"
+            "S3"
           ]
         },
         "connection": {
-          "description": "The connection object includes additional details about pertaining to securely accessing the resource. When specified as part of the storage object, the connection details only apply when accessing the storage facilities of the resource.",
+          "description": "The connection object includes additional details pertaining to securely accessing the resource. When specified as part of the storage object, the connection details only apply when accessing the storage facilities of the resource.",
           "$ref": "#/definitions/connectionDefinition"
         },
         "fileSystem": {
-          "description" : "The fileSystem object contains information about the paths available on the storage resource.",
+          "description": "The fileSystem object contains information about the paths available on the storage resource.",
           "$ref": "#/definitions/fileSystemDefinition"
         },
         "capacity": {
-          "description" : "The capacity object describes the total available storage on the resource.",
+          "description": "The capacity object describes the total available storage on the resource.",
           "type": "object",
           "properties": {
             "totalBytes": {
@@ -179,24 +167,12 @@
       "description":"The fileSystem object contains information about the paths available on the storage resource.",
       "type": "object",
       "properties": {
-        "rootDir": {
-          "description":"The path on the resource to use as the virtual root directory for all interactions with the resource. No interaction will happen outside of the rootDir path.",
-          "$ref": "#/definitions/dirPath"
-        },
         "homeDir": {
           "description":"The path on the resource, relative to rootDir, to use as the virtual home directory for all interactions with the resource.",
           "$ref": "#/definitions/dirPath"
         },
         "scratchDir": {
           "description":"The path on the resource, relative to rootDir, to use as the virtual scratch space; i.e., where running jobs should write to while executing.",
-          "$ref": "#/definitions/dirPath"
-        },
-        "workDir": {
-          "description":"The path on the resource, relative to rootDir, to use as the virtual directory TODO",
-          "$ref": "#/definitions/dirPath"
-        },
-        "archiveDir": {
-          "description":"The path on the resource, relative to rootDir, to use as the virtual directory to write job outputs to after execution completes.",
           "$ref": "#/definitions/dirPath"
         }
       }
@@ -208,14 +184,12 @@
         {
           "required": [
             "schedulerType",
-            "storageResource",
             "batchSystem"
           ]
         },
         {
           "required": [
             "schedulerType",
-            "storageResource",
             "forkSystem"
           ]
         }
@@ -229,10 +203,6 @@
             "BATCH",
             "ON_DEMAND"
           ]
-        },
-        "storageResource": {
-          "description":"The storage object includes details about the storage included with the compute resource",
-          "$ref": "#/definitions/storageDefinition"
         },
         "connection": {
           "description":"The connection object includes details about the storage and compute capabilities of the resource",
@@ -434,7 +404,7 @@
         "cpuType": {
           "description":"Type of cpus installed on the resource",
           "type": "string",
-          "examples" : [
+          "examples": [
             "Haswell CPUs @ 2.60GHz",
             "Intel Xeon-E5"
           ]
