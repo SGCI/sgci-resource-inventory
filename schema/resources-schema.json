@@ -73,6 +73,7 @@
             "SSH",
             "GLOBUS",
             "HTTP",
+            "HTTPS",
             "SFTP",
             "SCP",
             "IRODS"
@@ -84,6 +85,7 @@
           "enum": [
             "PASSWORDS",
             "SSHKEYS",
+            "APIKEYS",
             "X509",
             "OAUTH2"
           ]

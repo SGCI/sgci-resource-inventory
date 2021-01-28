@@ -41,13 +41,14 @@
       "storageType": "S3",
       "connection": {
         "connectionProtocol": "HTTPS",
-        "securityProtocol": "????"
+        "securityProtocol": "APIKEYS"
       }
     },
     {
       "storageType": "IRODS????",
       "connection": {
-        "connectionProtocol": "IRODS"
+        "connectionProtocol": "IRODS",
+        "securityProtocol": "PASSWORDS"
       }
     }
   ]
