@@ -24,7 +24,7 @@
       "$ref": "#/definitions/resourceName"
     },
     "description": {
-      "description": "Detalied description of the resource.",
+      "description": "Detailed description of the resource.",
       "type": "string",
       "maxLength": 2048
     },
