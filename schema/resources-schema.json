@@ -125,7 +125,7 @@
       "type": "object",
       "required": [
         "storageType",
-        "fileSystem"
+        "fileSystems"
       ],
       "properties": {
         "storageType": {
@@ -137,22 +137,20 @@
             "IRODS"
           ]
         },
-        "connection": {
-          "description": "The connection object includes additional details pertaining to securely accessing the resource. When specified as part of the storage object, the connection details only apply when accessing the storage facilities of the resource.",
-          "$ref": "#/definitions/connectionDefinition"
+        "connections": {
+          "description": "The connection objects indicate available methods for accessing the resource. When specified as part of the storage object, the connection details only apply when accessing the storage facilities of the resource.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/connectionDefinition"
+          }
         },
-        "fileSystem": {
-          "description": "The fileSystem object contains information about the paths available on the storage resource.",
-          "$ref": "#/definitions/fileSystemDefinition"
-        },
-        "capacity": {
-          "description": "The capacity object describes the total available storage on the resource.",
-          "type": "object",
-          "properties": {
-            "totalBytes": {
-              "description":"The total bytes of storage available on the resource.",
-              "type": "integer"
-            }
+        "fileSystems": {
+          "description": "The fileSystem objects containing information about the paths available on the storage resource.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/fileSystemDefinition"
           }
         },
         "defaultQuota": {
@@ -170,6 +168,10 @@
       "description":"The fileSystem object contains information about the paths available on the storage resource.",
       "type": "object",
       "properties": {
+        "mountDir": {
+          "description":"The path on the resource where the fileSystem is mounted.",
+          "$ref": "#/definitions/dirPath"
+        },
         "homeDir": {
           "description":"The path on the resource, relative to rootDir, to use as the virtual home directory for all interactions with the resource.",
           "$ref": "#/definitions/dirPath"
@@ -177,6 +179,16 @@
         "scratchDir": {
           "description":"The path on the resource, relative to rootDir, to use as the virtual scratch space; i.e., where running jobs should write to while executing.",
           "$ref": "#/definitions/dirPath"
+        },
+        "capacity": {
+          "description": "The capacity object describes the total available storage on the fileSystem.",
+          "type": "object",
+          "properties": {
+            "totalBytes": {
+              "description":"The total bytes of storage available on the fileSystem.",
+              "type": "integer"
+            }
+          }
         }
       }
     },
