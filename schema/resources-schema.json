@@ -133,7 +133,8 @@
           "description": "High-level category to which this storage resource belongs. Determines additional properties that can be provided.",
           "enum": [
             "POSIX",
-            "S3"
+            "S3",
+            "IRODS"
           ]
         },
         "connection": {
