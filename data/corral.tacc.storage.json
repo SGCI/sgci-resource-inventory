@@ -53,7 +53,7 @@
         {
           "mountDir": "/work",
           "capacity": {
-              "totalBytes": 20401094843136000
+            "totalBytes": 20401094843136000
           }
         }
       ]

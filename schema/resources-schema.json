@@ -148,7 +148,6 @@
         "fileSystems": {
           "description": "The fileSystem objects containing information about the paths available on the storage resource.",
           "type": "array",
-          "minItems": 1,
           "items": {
             "$ref": "#/definitions/fileSystemDefinition"
           }
