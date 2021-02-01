@@ -111,6 +111,7 @@
     "storageDefinitionList": {
       "type": "array",
       "items": {
+        "minItems": 1,
         "$ref": "#/definitions/storageDefinition"
       }
     },
