@@ -2,7 +2,10 @@
 Storage Resource Object
 ===================================================
 
-The Storage Resource Object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, all resource descriptions must include values for the storage properties.
+The ``storageDefinitionList`` attribute is made up of 1 or more ``storageDefinition`` objects. Each ``storageDefinition``
+describes properties for interacting with one storage capability the resource provides. All resources in the SGCI
+Resource Catalog are assumed to provide storage facilities, and as such, all resource descriptions must include
+at least one ``storageDefinition`` object within the ``storageDefinitionList`` attribute.
 
 .. jsonschema:: ../../schema/resources-schema.json#/definitions/storageDefinition
   :lift_description: True
@@ -34,5 +37,5 @@ Examples
 
 **SCIGAP Development Storage**
 
-.. literalinclude :: ../../data/posix-storages.json
+.. literalinclude :: ../../data/scigap-dev.iu.storage.json
   :language: javascript

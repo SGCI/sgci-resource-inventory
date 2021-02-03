@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -30,10 +35,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Compute Resource Object" href="computeDefinition.html" />
@@ -51,7 +52,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> SGCI RESOURCE INVENTORY
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SGCI RESOURCE INVENTORY
           
 
           
@@ -74,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,6 +99,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -135,7 +138,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Storage Resource Object</li>
     
@@ -158,7 +161,10 @@
             
   <div class="section" id="storage-resource-object">
 <h1>Storage Resource Object<a class="headerlink" href="#storage-resource-object" title="Permalink to this headline">¶</a></h1>
-<p>The Storage Resource Object is used to describe storage properties of the resource. All resources in the SGCI Resource Catalog are assumed to provide storage facilities, and as such, all resource descriptions must include values for the storage properties.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">storageDefinitionList</span></code> attribute is made up of 1 or more <code class="docutils literal notranslate"><span class="pre">storageDefinition</span></code> objects. Each <code class="docutils literal notranslate"><span class="pre">storageDefinition</span></code>
+describes properties for interacting with one storage capability the resource provides. All resources in the SGCI
+Resource Catalog are assumed to provide storage facilities, and as such, all resource descriptions must include
+at least one <code class="docutils literal notranslate"><span class="pre">storageDefinition</span></code> object within the <code class="docutils literal notranslate"><span class="pre">storageDefinitionList</span></code> attribute.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -184,43 +190,34 @@
 <td colspan="2"><p><em>string</em></p></td>
 </tr>
 <tr class="row-even"><td><p>enum</p></td>
-<td colspan="2"><p>POSIX, S3, OBJECT_STORE</p></td>
+<td colspan="2"><p>POSIX, S3, IRODS</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>connection</p></li>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p><strong>connections</strong></p></li>
 </ul>
 </td>
-<td colspan="3"><p>The connection object includes additional details about pertaining to securely accessing the resource. When specified as part of the storage object, the connection details only apply when accessing the storage facilities of the resource.</p></td>
-</tr>
-<tr class="row-even"><td colspan="3"><p><span class="xref std std-ref">#/definitions/connectionDefinition</span></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>fileSystem</strong></p></li>
-</ul>
-</td>
-<td colspan="3"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
-</tr>
-<tr class="row-even"><td colspan="3"><p><span class="xref std std-ref">#/definitions/fileSystemDefinition</span></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="5"><ul class="simple">
-<li><p>capacity</p></li>
-</ul>
-</td>
-<td colspan="3"><p>The capacity object describes the total available storage on the resource.</p></td>
+<td colspan="3"><p>The connection objects indicate available methods for accessing the resource.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td colspan="2"><p><em>object</em></p></td>
+<td colspan="2"><p><em>array</em></p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+<tr class="row-odd"><td><p>items</p></td>
+<td colspan="2"><p><span class="xref std std-ref">#/definitions/connectionDefinition</span></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>totalBytes</p></li>
+<tr class="row-even"><td><p>minItems</p></td>
+<td colspan="2"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>fileSystems</strong></p></li>
 </ul>
 </td>
-<td colspan="2"><p>The total bytes of storage available on the resource.</p></td>
+<td colspan="3"><p>The fileSystem objects containing information about the paths available on the storage resource.</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
-<td><p><em>integer</em></p></td>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td colspan="2"><p><span class="xref std std-ref">#/definitions/fileSystemDefinition</span></p></td>
 </tr>
 <tr class="row-even"><td rowspan="4"><ul class="simple">
 <li><p>defaultQuota</p></li>
@@ -251,7 +248,7 @@
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to stablish a connection with the resource</p></td>
+<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to establish a connection with the resource</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>object</em></p></td>
@@ -262,13 +259,13 @@
 <li><p><strong>connectionProtocol</strong></p></li>
 </ul>
 </td>
-<td colspan="2"><p>Communication protocol required to stablish a connection with the resources</p></td>
+<td colspan="2"><p>Communication protocol required to establish a connection with the resource</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-even"><td><p>enum</p></td>
-<td><p>SSH, GLOBUS, HTTP, SFTP, SCP, IRODS</p></td>
+<td><p>SSH, GLOBUS, HTTP, HTTPS, SFTP, SCP, IRODS</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p><strong>securityProtocol</strong></p></li>
@@ -280,7 +277,7 @@
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>enum</p></td>
-<td><p>PASSWORDS, SSHKEYS, X509, OAUTH2</p></td>
+<td><p>PASSWORDS, SSHKEYS, APIKEYS, X509, OAUTH2</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>port</p></li>
@@ -295,7 +292,7 @@
 <li><p>useProxy</p></li>
 </ul>
 </td>
-<td colspan="2"><p>Some resources require to tunnel the connection throught a proxy host</p></td>
+<td colspan="2"><p>Some resources require to tunnel the connection through a proxy host</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>boolean</em></p></td>
@@ -306,7 +303,7 @@
 </td>
 <td colspan="2"><p>The ProxyHost object includes details required to connect to the proxy tunneling</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/hostNameDefinition</span></p></td>
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/hostName</span></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyPort</p></li>
@@ -324,56 +321,70 @@
 <h2>File System Object / fileSystemDefinition<a class="headerlink" href="#file-system-object-filesystemdefinition" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td colspan="2"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
+<tr class="row-odd"><td colspan="4"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td><p><em>object</em></p></td>
+<td colspan="3"><p><em>object</em></p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>properties</p></td>
+<tr class="row-odd"><td colspan="4"><p>properties</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>rootDir</p></li>
+<li><p>mountDir</p></li>
 </ul>
 </td>
-<td><p>The path on the resource to use as the virtual root directory for all interactions with the resource. No interaction will happen outside of the rootDir path.</p></td>
+<td colspan="3"><p>The path on the resource where the fileSystem is mounted.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+<tr class="row-odd"><td colspan="3"><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>homeDir</p></li>
 </ul>
 </td>
-<td><p>The path on the resource, relative to rootDir, to use as the virtual home directory for all interactions with the resource.</p></td>
+<td colspan="3"><p>The path on the resource serving as the base for user specific home directories.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+<tr class="row-odd"><td colspan="3"><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>scratchDir</p></li>
 </ul>
 </td>
-<td><p>The path on the resource, relative to rootDir, to use as the virtual scratch space; i.e., where running jobs should write to while executing.</p></td>
+<td colspan="3"><p>The path on the resource serving as the base for the SCRATCH file system, typically non-shared storage where running jobs should direct their I/O while executing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+<tr class="row-odd"><td colspan="3"><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>workDir</p></li>
 </ul>
 </td>
-<td><p>The path on the resource, relative to rootDir, to use as the virtual directory TODO</p></td>
+<td colspan="3"><p>The path on the resource serving as the base for the WORK file system, typically shared storage where files are staged before being copied to SCRATCH.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+<tr class="row-odd"><td colspan="3"><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>archiveDir</p></li>
+<tr class="row-even"><td rowspan="5"><ul class="simple">
+<li><p>capacity</p></li>
 </ul>
 </td>
-<td><p>The path on the resource, relative to rootDir, to use as the virtual directory to write job outputs to after execution completes.</p></td>
+<td colspan="3"><p>The capacity object describes the total available storage on the fileSystem.</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">#/definitions/dirPath</span></p></td>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>totalBytes</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The total bytes of storage available on the fileSystem.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -404,47 +415,23 @@
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p><strong>SCIGAP Development Storage</strong></p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;sgciResources&quot;</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SCIGAP Development Storage&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;STORAGE&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;hosts&quot;</span><span class="o">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;pgadev.scigap.org&quot;</span>
-          <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;fileSystems&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-              <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;workDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data&quot;</span>
-            <span class="p">}</span>
-          <span class="p">]</span>
-        <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SCIGAP Staging Storage&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;STORAGE&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;hosts&quot;</span><span class="o">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;pganew.staging.scigap.org&quot;</span>
-          <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;fileSystems&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-              <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;workDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/data&quot;</span>
-            <span class="p">}</span>
-          <span class="p">]</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
+    <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SCIGAP Development Storage&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;pgadev.scigap.org&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX storage server for the SCIGAP development environment.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;storageResources&quot;</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;connections&quot;</span><span class="o">:</span> <span class="p">[{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+    <span class="p">}],</span>
+      <span class="s2">&quot;fileSystems&quot;</span><span class="o">:</span>
+        <span class="p">[{</span>
+          <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span>
+        <span class="p">}]</span>
+    <span class="p">}]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -470,6 +457,7 @@
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mejia
 
     </p>

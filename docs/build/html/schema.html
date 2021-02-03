@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -30,10 +35,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Compute Resource Object" href="computeDefinition.html" /> 
@@ -50,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> SGCI RESOURCE INVENTORY
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SGCI RESOURCE INVENTORY
           
 
           
@@ -73,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -85,11 +87,12 @@
 <li class="toctree-l1"><a class="reference internal" href="storageDefinition.html">Storage Resource Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Complete INVENTORY Schema</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#resourceid">resourceId</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resourcename">resourceName</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hostname">hostName</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dirpath">dirPath</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storagedefinitionlist">storageDefinitionList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computedefinitionlist">computeDefinitionList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#storagedefinition">storageDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#filesystemdefinition">fileSystemDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#computedefinition">computeDefinition</a></li>
@@ -106,6 +109,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -144,7 +148,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Complete INVENTORY Schema</li>
     
@@ -184,7 +188,7 @@
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>schemaVersion</p></li>
+<li><p><strong>schemaVersion</strong></p></li>
 </ul>
 </td>
 <td colspan="2"><p>Version of the SGCI Resource Descriptions schema used for this description.</p></td>
@@ -193,12 +197,12 @@
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>id</strong></p></li>
+<li><p><strong>host</strong></p></li>
 </ul>
 </td>
-<td colspan="2"><p>Unique identifier for the resource across all SGCI resource descriptions.</p></td>
+<td colspan="2"><p>Network addressable name (hostname) serving as a unique identifier for the resource across all SGCI resource descriptions.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#resourceid">resourceId</a></p></td>
+<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#hostname">hostName</a></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p><strong>name</strong></p></li>
@@ -212,7 +216,7 @@
 <li><p>description</p></li>
 </ul>
 </td>
-<td colspan="2"><p>Detalied description of the resource.</p></td>
+<td colspan="2"><p>Detailed description of the resource.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
@@ -220,72 +224,23 @@
 <tr class="row-odd"><td><p>maxLength</p></td>
 <td><p>2048</p></td>
 </tr>
-<tr class="row-even"><td rowspan="3"><ul class="simple">
-<li><p><strong>resourceType</strong></p></li>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>storageResources</strong></p></li>
 </ul>
 </td>
-<td colspan="2"><p>The type of resource</p></td>
+<td colspan="2"><p><a class="reference internal" href="#storagedefinitionlist">storageDefinitionList</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
-<td><p><em>string</em></p></td>
-</tr>
-<tr class="row-even"><td><p>enum</p></td>
-<td><p>STORAGE, COMPUTE</p></td>
-</tr>
-<tr class="row-odd"><td rowspan="3"><ul class="simple">
-<li><p><strong>resource</strong></p></li>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>computeResources</p></li>
 </ul>
 </td>
-<td colspan="2"><p>The resource object includes details about the storage and compute capabilities of the resource</p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><p>oneOf</p></td>
-<td><p><a class="reference internal" href="#storagedefinition">storageDefinition</a></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#computedefinition">computeDefinition</a></p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>host</p></li>
-</ul>
-</td>
-<td colspan="2"><p>Network addressable name (i.e., IP or hostname) to use when accessing the resource.</p></td>
-</tr>
-<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>connection</p></li>
-</ul>
-</td>
-<td colspan="2"><p>The connection object includes additional details about pertaining to securely accessing the resource.</p></td>
-</tr>
-<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
+<td colspan="2"><p><a class="reference internal" href="#computedefinitionlist">computeDefinitionList</a></p></td>
 </tr>
 <tr class="row-even"><td><p>additionalProperties</p></td>
 <td colspan="2"><p>False</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="resourceid">
-<span id="resourceid"></span><h2>resourceId<a class="headerlink" href="#resourceid" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td colspan="2"><p>Unique identifier for the resource across all SGCI resource descriptions.</p></td>
-</tr>
-<tr class="row-even"><td><p>type</p></td>
-<td><p><em>string</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>maxLength</p></td>
-<td><p>256</p></td>
-</tr>
-<tr class="row-even"><td><p>minLength</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="section" id="resourcename">
 <span id="resourcename"></span><h2>resourceName<a class="headerlink" href="#resourcename" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
@@ -308,8 +263,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="hostnamedefinition">
-<span id="hostnamedefinition"></span><h2>hostNameDefinition<a class="headerlink" href="#hostnamedefinition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hostname">
+<span id="hostname"></span><h2>hostName<a class="headerlink" href="#hostname" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -361,7 +316,7 @@
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to stablish a connection with the resource</p></td>
+<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to establish a connection with the resource</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>object</em></p></td>
@@ -372,13 +327,13 @@
 <li><p><strong>connectionProtocol</strong></p></li>
 </ul>
 </td>
-<td colspan="2"><p>Communication protocol required to stablish a connection with the resources</p></td>
+<td colspan="2"><p>Communication protocol required to establish a connection with the resource</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-even"><td><p>enum</p></td>
-<td><p>SSH, GLOBUS, HTTP, SFTP, SCP, IRODS</p></td>
+<td><p>SSH, GLOBUS, HTTP, HTTPS, SFTP, SCP, IRODS</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p><strong>securityProtocol</strong></p></li>
@@ -390,7 +345,7 @@
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>enum</p></td>
-<td><p>PASSWORDS, SSHKEYS, X509, OAUTH2</p></td>
+<td><p>PASSWORDS, SSHKEYS, APIKEYS, X509, OAUTH2</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>port</p></li>
@@ -405,7 +360,7 @@
 <li><p>useProxy</p></li>
 </ul>
 </td>
-<td colspan="2"><p>Some resources require to tunnel the connection throught a proxy host</p></td>
+<td colspan="2"><p>Some resources require to tunnel the connection through a proxy host</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>boolean</em></p></td>
@@ -416,7 +371,7 @@
 </td>
 <td colspan="2"><p>The ProxyHost object includes details required to connect to the proxy tunneling</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#hostnamedefinition">hostNameDefinition</a></p></td>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#hostname">hostName</a></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyPort</p></li>
@@ -426,6 +381,40 @@
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="storagedefinitionlist">
+<span id="storagedefinitionlist"></span><h2>storageDefinitionList<a class="headerlink" href="#storagedefinitionlist" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#storagedefinition">storageDefinition</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="computedefinitionlist">
+<span id="computedefinitionlist"></span><h2>computeDefinitionList<a class="headerlink" href="#computedefinitionlist" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#computedefinition">computeDefinition</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -457,43 +446,34 @@
 <td colspan="2"><p><em>string</em></p></td>
 </tr>
 <tr class="row-even"><td><p>enum</p></td>
-<td colspan="2"><p>POSIX, S3, OBJECT_STORE</p></td>
+<td colspan="2"><p>POSIX, S3, IRODS</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>connection</p></li>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p><strong>connections</strong></p></li>
 </ul>
 </td>
-<td colspan="3"><p>The connection object includes additional details about pertaining to securely accessing the resource. When specified as part of the storage object, the connection details only apply when accessing the storage facilities of the resource.</p></td>
-</tr>
-<tr class="row-even"><td colspan="3"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p><strong>fileSystem</strong></p></li>
-</ul>
-</td>
-<td colspan="3"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
-</tr>
-<tr class="row-even"><td colspan="3"><p><a class="reference internal" href="#filesystemdefinition">fileSystemDefinition</a></p></td>
-</tr>
-<tr class="row-odd"><td rowspan="5"><ul class="simple">
-<li><p>capacity</p></li>
-</ul>
-</td>
-<td colspan="3"><p>The capacity object describes the total available storage on the resource.</p></td>
+<td colspan="3"><p>The connection objects indicate available methods for accessing the resource.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td colspan="2"><p><em>object</em></p></td>
+<td colspan="2"><p><em>array</em></p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+<tr class="row-odd"><td><p>items</p></td>
+<td colspan="2"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>totalBytes</p></li>
+<tr class="row-even"><td><p>minItems</p></td>
+<td colspan="2"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>fileSystems</strong></p></li>
 </ul>
 </td>
-<td colspan="2"><p>The total bytes of storage available on the resource.</p></td>
+<td colspan="3"><p>The fileSystem objects containing information about the paths available on the storage resource.</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
-<td><p><em>integer</em></p></td>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td colspan="2"><p><a class="reference internal" href="#filesystemdefinition">fileSystemDefinition</a></p></td>
 </tr>
 <tr class="row-even"><td rowspan="4"><ul class="simple">
 <li><p>defaultQuota</p></li>
@@ -520,56 +500,70 @@
 <span id="filesystemdefinition"></span><h2>fileSystemDefinition<a class="headerlink" href="#filesystemdefinition" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td colspan="2"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
+<tr class="row-odd"><td colspan="4"><p>The fileSystem object contains information about the paths available on the storage resource.</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
-<td><p><em>object</em></p></td>
+<td colspan="3"><p><em>object</em></p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>properties</p></td>
+<tr class="row-odd"><td colspan="4"><p>properties</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>rootDir</p></li>
+<li><p>mountDir</p></li>
 </ul>
 </td>
-<td><p>The path on the resource to use as the virtual root directory for all interactions with the resource. No interaction will happen outside of the rootDir path.</p></td>
+<td colspan="3"><p>The path on the resource where the fileSystem is mounted.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+<tr class="row-odd"><td colspan="3"><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>homeDir</p></li>
 </ul>
 </td>
-<td><p>The path on the resource, relative to rootDir, to use as the virtual home directory for all interactions with the resource.</p></td>
+<td colspan="3"><p>The path on the resource serving as the base for user specific home directories.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+<tr class="row-odd"><td colspan="3"><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>scratchDir</p></li>
 </ul>
 </td>
-<td><p>The path on the resource, relative to rootDir, to use as the virtual scratch space; i.e., where running jobs should write to while executing.</p></td>
+<td colspan="3"><p>The path on the resource serving as the base for the SCRATCH file system, typically non-shared storage where running jobs should direct their I/O while executing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+<tr class="row-odd"><td colspan="3"><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>workDir</p></li>
 </ul>
 </td>
-<td><p>The path on the resource, relative to rootDir, to use as the virtual directory TODO</p></td>
+<td colspan="3"><p>The path on the resource serving as the base for the WORK file system, typically shared storage where files are staged before being copied to SCRATCH.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+<tr class="row-odd"><td colspan="3"><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>archiveDir</p></li>
+<tr class="row-even"><td rowspan="5"><ul class="simple">
+<li><p>capacity</p></li>
 </ul>
 </td>
-<td><p>The path on the resource, relative to rootDir, to use as the virtual directory to write job outputs to after execution completes.</p></td>
+<td colspan="3"><p>The capacity object describes the total available storage on the fileSystem.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#dirpath">dirPath</a></p></td>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>totalBytes</p></li>
+</ul>
+</td>
+<td colspan="2"><p>The total bytes of storage available on the fileSystem.</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -602,21 +596,20 @@
 <tr class="row-even"><td><p>enum</p></td>
 <td><p>FORK, BATCH, ON_DEMAND</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>storageResource</p></li>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>connections</p></li>
 </ul>
 </td>
-<td colspan="2"><p>The storage object includes details about the storage included with the compute resource</p></td>
+<td colspan="2"><p>The connection objects indicate available methods for accessing the resource.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#storagedefinition">storageDefinition</a></p></td>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>connection</p></li>
-</ul>
-</td>
-<td colspan="2"><p>The connection object includes details about the storage and compute capabilities of the resource</p></td>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></p></td>
+<tr class="row-even"><td><p>minItems</p></td>
+<td><p>1</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p>executionCommands</p></li>
@@ -1090,6 +1083,7 @@
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mejia
 
     </p>

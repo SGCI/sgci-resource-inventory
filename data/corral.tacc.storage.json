@@ -1,8 +1,8 @@
 {
-  "schemaVersion": "0.0.1",
+  "schemaVersion": "0.1.0",
   "host": "data.tacc.utexas.edu",
   "name": "tacc-corral-storage-login",
-  "description": "WIP: TACC storage resource Corral login node",
+  "description": "TACC Corral high-performance storage resource",
   "storageResources": [
     {
       "storageType": "POSIX",
