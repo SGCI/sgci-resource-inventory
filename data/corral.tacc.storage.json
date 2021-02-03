@@ -3,11 +3,6 @@
   "host": "data.tacc.utexas.edu",
   "name": "tacc-corral-storage-login",
   "description": "WIP: TACC storage resource Corral login node",
-  "connection": {
-    "connectionProtocol": "SSH",
-    "securityProtocol": "SSHKEYS",
-    "port": 22
-  },
   "storageResources": [
     {
       "storageType": "POSIX",
@@ -60,17 +55,21 @@
     },
     {
       "storageType": "S3",
-      "connection": {
-        "connectionProtocol": "HTTPS",
-        "securityProtocol": "APIKEYS"
-      }
+      "connections": [
+        {
+          "connectionProtocol": "HTTPS",
+          "securityProtocol": "APIKEYS"
+        }
+      ]
     },
     {
       "storageType": "IRODS",
-      "connection": {
-        "connectionProtocol": "IRODS",
-        "securityProtocol": "PASSWORDS"
-      }
+      "connections": [
+        {
+          "connectionProtocol": "IRODS",
+          "securityProtocol": "PASSWORDS"
+        }
+      ]
     }
   ]
 }

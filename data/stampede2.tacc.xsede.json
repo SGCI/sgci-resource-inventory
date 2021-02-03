@@ -3,19 +3,21 @@
   "host": "stampede2.tacc.xsede.org",
   "name": "tacc-xsede-stampede2",
   "description": "WIP: Sample resource for TACC Stampede2 Cluster",
-  "connection": {
-    "connectionProtocol": "SSH",
-    "securityProtocol": "SSHKEYS",
-    "port": 22
-  },
   "computeResources": [
     {
       "schedulerType": "BATCH",
-      "connection": {
-        "connectionProtocol": "SSH",
-        "securityProtocol": "SSHKEYS",
-        "port": 22
-      },
+      "connections": [
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        },
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "PASSWORDS",
+          "port": 22
+        }
+      ],
       "batchSystem": {
         "jobManager": "SLURM",
         "commandPaths": [
@@ -39,11 +41,18 @@
     },
     {
       "schedulerType": "FORK",
-      "connection": {
-        "connectionProtocol": "SSH",
-        "securityProtocol": "SSHKEYS",
-        "port": 22
-      },
+      "connections": [
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        },
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "PASSWORDS",
+          "port": 22
+        }
+      ],
       "forkSystem": {
         "systemType": "LINUX"
       }
@@ -62,7 +71,8 @@
       "fileSystems": [
         {
           "homeDir": "/home1",
-          "scratchDir": "/scratch"
+          "scratchDir": "/scratch",
+          "workDir": "/work"
         }
       ]
     }
