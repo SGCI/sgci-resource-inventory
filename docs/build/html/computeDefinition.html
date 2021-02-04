@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -30,10 +35,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Complete INVENTORY Schema" href="schema.html" />
@@ -51,7 +52,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> SGCI RESOURCE INVENTORY
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SGCI RESOURCE INVENTORY
           
 
           
@@ -74,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,6 +99,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -135,7 +138,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Compute Resource Object</li>
     
@@ -184,21 +187,20 @@
 <tr class="row-even"><td><p>enum</p></td>
 <td><p>FORK, BATCH, ON_DEMAND</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>storageResource</p></li>
+<tr class="row-odd"><td rowspan="4"><ul class="simple">
+<li><p>connections</p></li>
 </ul>
 </td>
-<td colspan="2"><p>The storage object includes details about the storage included with the compute resource</p></td>
+<td colspan="2"><p>The connection objects indicate available methods for accessing the resource.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><span class="xref std std-ref">#/definitions/storageDefinition</span></p></td>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
-<li><p>connection</p></li>
-</ul>
-</td>
-<td colspan="2"><p>The connection object includes details about the storage and compute capabilities of the resource</p></td>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p><span class="xref std std-ref">#/definitions/connectionDefinition</span></p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p><span class="xref std std-ref">#/definitions/connectionDefinition</span></p></td>
+<tr class="row-even"><td><p>minItems</p></td>
+<td><p>1</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p>executionCommands</p></li>
@@ -239,7 +241,7 @@
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to stablish a connection with the resource</p></td>
+<tr class="row-odd"><td colspan="3"><p>The connection object defines all parameters required to establish a connection with the resource</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>object</em></p></td>
@@ -250,13 +252,13 @@
 <li><p><strong>connectionProtocol</strong></p></li>
 </ul>
 </td>
-<td colspan="2"><p>Communication protocol required to stablish a connection with the resources</p></td>
+<td colspan="2"><p>Communication protocol required to establish a connection with the resource</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-even"><td><p>enum</p></td>
-<td><p>SSH, GLOBUS, HTTP, SFTP, SCP, IRODS</p></td>
+<td><p>SSH, GLOBUS, HTTP, HTTPS, SFTP, SCP, IRODS</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p><strong>securityProtocol</strong></p></li>
@@ -268,7 +270,7 @@
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>enum</p></td>
-<td><p>PASSWORDS, SSHKEYS, X509, OAUTH2</p></td>
+<td><p>PASSWORDS, SSHKEYS, APIKEYS, X509, OAUTH2</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>port</p></li>
@@ -283,7 +285,7 @@
 <li><p>useProxy</p></li>
 </ul>
 </td>
-<td colspan="2"><p>Some resources require to tunnel the connection throught a proxy host</p></td>
+<td colspan="2"><p>Some resources require to tunnel the connection through a proxy host</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>boolean</em></p></td>
@@ -294,7 +296,7 @@
 </td>
 <td colspan="2"><p>The ProxyHost object includes details required to connect to the proxy tunneling</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/hostNameDefinition</span></p></td>
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/hostName</span></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyPort</p></li>
@@ -409,63 +411,124 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<p><strong>SDSC Comet Cluster</strong></p>
+<p><strong>Carbonate HPC Cluster</strong></p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;sgciResources&quot;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SDSC Comet Cluster&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;hosts&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;hostname&quot;</span><span class="o">:</span> <span class="s2">&quot;bigred3.uits.iu.edu&quot;</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Carbonate HPC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;carbonate.uits.iu.edu&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;computeResources&quot;</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;connections&quot;</span><span class="o">:</span> <span class="p">[{</span>
           <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
           <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
           <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="p">}],</span>
+      <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
           <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span> <span class="s2">&quot;SLURM&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-              <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUBMISSION&quot;</span>
-            <span class="p">}</span>
-          <span class="p">]</span>
-        <span class="p">}</span>
+          <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUBMISSION&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;/foo&quot;</span>
+          <span class="p">}]</span>
       <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+    <span class="p">}],</span>
+
+    <span class="s2">&quot;storageResources&quot;</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;connections&quot;</span><span class="o">:</span> <span class="p">[{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+    <span class="p">}],</span>
+
+      <span class="s2">&quot;fileSystems&quot;</span><span class="o">:</span> <span class="p">[{</span>
+          <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;scratchDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/scratch&quot;</span>
+        <span class="p">}]</span>
+    <span class="p">}]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>TACC Stampede2 Cluster</strong></p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1001&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;tacc-stampede2-compute&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;WIP: Sample compute resource for TACC Stampede2 Cluster&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;resourceType&quot;</span><span class="o">:</span> <span class="s2">&quot;COMPUTE&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
   <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;stampede2.tacc.xsede.org&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;connection&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;resource&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;FORK&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;storageResource&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;fileSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;rootDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;scratchDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/scratch&quot;</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;tacc-xsede-stampede2&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;WIP: Sample resource for TACC Stampede2 Cluster&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;computeResources&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;connections&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;PASSWORDS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span> <span class="s2">&quot;SLURM&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;commandPaths&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUBMISSION&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;/bin/sbatch&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;partitions&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;totalNodes&quot;</span><span class="o">:</span> <span class="mi">256</span><span class="p">,</span>
+            <span class="s2">&quot;nodeHardware&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;cpuType&quot;</span><span class="o">:</span> <span class="s2">&quot;KNL CPUs @ 1.40GHz&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;cpuCount&quot;</span><span class="o">:</span> <span class="mi">68</span><span class="p">,</span>
+              <span class="s2">&quot;memoryType&quot;</span><span class="o">:</span> <span class="s2">&quot;DDR4&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;memorySize&quot;</span><span class="o">:</span> <span class="s2">&quot;96 GB&quot;</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
       <span class="p">}</span>
-     <span class="p">},</span>
-    <span class="s2">&quot;forkSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;systemType&quot;</span><span class="o">:</span> <span class="s2">&quot;LINUX&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span> <span class="s2">&quot;FORK&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;connections&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;PASSWORDS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;forkSystem&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;systemType&quot;</span><span class="o">:</span> <span class="s2">&quot;LINUX&quot;</span>
+      <span class="p">}</span>
     <span class="p">}</span>
-  <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;storageResources&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;storageType&quot;</span><span class="o">:</span> <span class="s2">&quot;POSIX&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;connections&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span> <span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="mi">22</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;fileSystems&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;homeDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/home1&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;scratchDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/scratch&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;workDir&quot;</span><span class="o">:</span> <span class="s2">&quot;/work&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -492,6 +555,7 @@
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mejia
 
     </p>

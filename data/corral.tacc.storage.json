@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "0.1.0",
+  "host": "data.tacc.utexas.edu",
+  "name": "tacc-corral-storage-login",
+  "description": "TACC Corral high-performance storage resource",
+  "storageResources": [
+    {
+      "storageType": "POSIX",
+      "connections": [
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        },
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "PASSWORDS",
+          "port": 22
+        },
+        {
+          "connectionProtocol": "SCP",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        },
+        {
+          "connectionProtocol": "SCP",
+          "securityProtocol": "PASSWORDS",
+          "port": 22
+        },
+        {
+          "connectionProtocol": "SFTP",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        },
+        {
+          "connectionProtocol": "SFTP",
+          "securityProtocol": "PASSWORDS",
+          "port": 22
+        }
+      ],
+      "fileSystems": [
+        {
+          "mountDir": "/home",
+          "capacity": {
+            "totalBytes": 940686700544
+          }
+        },
+        {
+          "mountDir": "/work",
+          "capacity": {
+            "totalBytes": 20401094843136000
+          }
+        }
+      ]
+    },
+    {
+      "storageType": "S3",
+      "connections": [
+        {
+          "connectionProtocol": "HTTPS",
+          "securityProtocol": "APIKEYS"
+        }
+      ]
+    },
+    {
+      "storageType": "IRODS",
+      "connections": [
+        {
+          "connectionProtocol": "IRODS",
+          "securityProtocol": "PASSWORDS"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+    "schemaVersion": "0.1.0",
+    "name": "Carbonate HPC",
+    "host": "carbonate.uits.iu.edu",
+    "computeResources": [{
+      "schedulerType": "BATCH",
+      "connections": [{
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+      }],
+      "batchSystem": {
+          "jobManager": "SLURM",
+          "commandPaths": [{
+            "name": "SUBMISSION",
+            "path": "/foo"
+          }]
+      }
+    }],
+
+    "storageResources": [{
+      "storageType": "POSIX",
+      "connections": [{
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+    }],
+
+      "fileSystems": [{
+          "rootDir": "/",
+          "scratchDir": "/scratch"
+        }]
+    }]
+}

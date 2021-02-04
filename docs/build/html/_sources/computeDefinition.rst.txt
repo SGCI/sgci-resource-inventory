@@ -29,9 +29,9 @@ fork System Object / forkSystemDefinition
 Examples
 ---------------------------------------------------
 
-**SDSC Comet Cluster**
+**Carbonate HPC Cluster**
 
-.. literalinclude :: ../../data/comet.sdsc.xsede.json
+.. literalinclude :: ../../data/carbonateHPC.iu.compute.json
   :language: javascript
 
 

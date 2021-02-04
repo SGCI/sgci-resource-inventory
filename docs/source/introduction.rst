@@ -24,7 +24,7 @@ The current, initial version of the resource description language focuses on “
 ---------------------------------------------------
 Definitions
 ---------------------------------------------------
-<definitions>
+Definitions of terms used in the specification will be added here.
 
 ---------------------------------------------------
 Specification Format
@@ -34,40 +34,62 @@ SGCI resource descriptions are JSON documents that conform to the JSONSchema def
 ---------------------------------------------------
 Examples
 ---------------------------------------------------
-Here are some first examples.
+We illustrate the main features of the specification by walking through a few prototypical examples.
 
 **SCIGAP Development Storage**
 
-A server or virtual machine providing storage accessible over SSH can be registered as resources with ``"resourceType": "STORAGE"``.
-The following example describes the storage used by the SCIGAP framework in its development environment.
+A server or virtual machine providing storage accessible over SSH can be registered as resource with a single object
+provided within the ``"storageResources"`` attribute describing the connection information and the file systems present.
+In the SGCI Resource Descriptions specification, it is assumed that all resources provide some kind of storage
+capability; that is, at least one object within the ``storageResources`` array attribute must be provided,  and within
+that object, at least one ``connections`` object must be provided.
+
+A fundamental principle in the SGCI Resource Description Specification is that the ``host`` attribute uniquely
+identifies a resource, and only one description document for a given ``host`` can exist in the inventory. The value of
+``host`` is a network addressable identifier for the resource, most typically, a fully qualified domain name.
+
+The following example describes a hypothetical storage resource used by the SCIGAP framework in its development environment.
 
 .. literalinclude :: ../../data/scigap-dev.iu.storage.json
+   :language: javascript
+
+**Corral Storage System at TACC**
+
+The Corral storage system at TACC provides a more complicated example, with multiple file systems mounted onto
+a single resource and multiple types of storage endpoints available.
+The following example illustrates how a system like Corral, with many storage functionalities, can be described in a
+single document using the specification.
+
+.. literalinclude :: ../../data/corral.tacc.storage.json
    :language: javascript
 
 
 **Carbonate HPC**
 
-Resources providing compute capabilities are registered as resources with ``"resourceType": "COMPUTE"``.
-Carbonate is Indiana University's large-memory computer cluster:
+Compute capabilities provided by resources are described within one or more  ``computeResources`` definitions. Unlike the
+``storageResources`` attribute that must contain at least one object, the ``computeResources`` attribute is entirely
+optional. Each compute resource object must define at least one ``connections`` object, analogous to the ``storageResource``
+definitions. Additionally, each compute resource defines the way workloads are scheduled on the resource using the
+``schedulerType`` property, with values such as ``FORK`` or ``BATCH``. The value of ``schedulerType`` dictates additional
+objects that may be provided, such as the ``batchSystem`` object for value ``BATCH``.
 
-.. literalinclude :: ../../data/caronateHPC.iu.compute.json
+Carbonate is Indiana University's large-memory computer cluster. The simple description below only includes the ``BATCH``
+submission capability and does not provide any partion (queue) information.
+
+.. literalinclude :: ../../data/carbonateHPC.iu.compute.json
    :language: javascript
 
 
 **TACC Stampede2 Cluster**
 
-In the following example of the TACC Stampede2 supercomputer, we add descriptions of the partitions (queues).
-These are optional but very valuable for science gateway projects.
+In the final example describing the TACC Stampede2 supercomputer, two ``computeResources`` definitions are included,
+one with ``schedulerType`` having value ``BATCH`` and one with ``schedulerType`` having value ``FORK``.
+While all "real" workloads are required to be submitted to the
+batch scheduler, the ``FORK`` scheduler could be utilized for "code compilation" tasks that run
+directly on the login node. Additionally, the ``BATCH`` compute resource includes descriptions of the partitions
+(queues). These are optional but very valuable for science gateway projects.
 
-.. literalinclude :: ../../data/stampede2.tacc.compute.json
-  :language: javascript
-
-
-**SDSC Comet Cluster**
-
-Our final example is of the SDSC Comet machine:
-
-.. literalinclude :: ../../data/comet.sdsc.compute.json
+.. literalinclude :: ../../data/stampede2.tacc.xsede.json
   :language: javascript
 
 
