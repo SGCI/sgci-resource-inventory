@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "0.1.0",
+  "host": "halstead.rcac.purdue.edu",
+  "name": "Halstead Purdue Cluster ",
+  "description": "WIP: Sample resource for Purdue Halstead Community Cluster",
+  "computeResources": [
+    {
+      "schedulerType": "BATCH",
+      "connections": [
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        },
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "PASSWORDS",
+          "port": 22
+        }
+      ],
+      "batchSystem": {
+        "jobManager": "SLURM",
+        "commandPaths": [
+          {
+            "name": "SUBMISSION",
+            "path": "/bin/sbatch"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "halstead-standby",
+            "totalNodes": 580,
+            "nodeHardware": {
+              "cpuType": "Haswell CPUs @ 2.60GHz",
+              "cpuCount": 20,
+              "memoryType": "DDR4",
+              "memorySize": "128 GB"
+            }
+          }
+        ],
+        "executionCommands" : [
+          {
+            "commandType" : "mpi",
+            "commandPrefix" : "mpirun",
+            "moduleDependencies" : ["intel/17.0.1.13", "impi/2017.1.132"]
+          }
+        ]
+      }
+    },
+    {
+      "schedulerType": "FORK",
+      "connections": [
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        },
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "PASSWORDS",
+          "port": 22
+        }
+      ],
+      "forkSystem": {
+        "systemType": "LINUX"
+      }
+    }
+  ],
+  "storageResources": [
+    {
+      "storageType": "POSIX",
+      "connections": [
+        {
+          "connectionProtocol": "SSH",
+          "securityProtocol": "SSHKEYS",
+          "port": 22
+        }
+      ],
+      "fileSystems": [
+        {
+          "homeDir": "/home",
+          "scratchDir": "/scratch/halstead"
+        }
+      ]
+    }
+  ]
+}
