@@ -37,6 +37,13 @@
               "memorySize": "96 GB"
             }
           }
+        ],
+        "executionCommands" : [
+          {
+            "commandType" : "mpi",
+            "commandPrefix" : "ibrun",
+            "moduleDependencies" : ["intel/17.0.4", "impi/17.0.3"]
+          }
         ]
       }
     },
