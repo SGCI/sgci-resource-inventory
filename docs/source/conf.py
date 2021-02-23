@@ -29,7 +29,7 @@ author = 'Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mej
 # ones.
 extensions = [
 	'sphinx.ext.todo',
-    	'sphinx.ext.githubpages',
+	'sphinx.ext.githubpages',
 	'sphinx.ext.autodoc',
 	'sphinx-jsonschema'
 ]

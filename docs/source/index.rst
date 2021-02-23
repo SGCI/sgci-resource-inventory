@@ -12,6 +12,8 @@ Welcome to SGCI RESOURCE INVENTORY's documentation!
    introduction
    storageDefinition
    computeDefinition
+   statusDefinition
+   OutageDefinition
    schema
 
 Indices and tables

@@ -1,28 +1,98 @@
 {
   "sgciResources": [
     {
-      "id": "3",
-      "name": "SDSC Comet Cluster",
-      "resourceType": "COMPUTE",
-      "resource": {
-        "hosts": {
-          "hostname": "bigred3.uits.iu.edu"
-        },
-        "schedulerType": "BATCH",
-        "connection": {
-          "connectionProtocol": "SSH",
-          "securityProtocol": "SSHKEYS",
-          "port": 22
-        },
-        "batchSystem": {
-          "jobManager": "SLURM",
-          "commandPaths": [
+      "schemaVersion":"0.1.0",
+      "host":"comet.sdsc.xsede.org",
+      "name":"SDSC Dell Cluster with Intel Haswell Processors (Comet)",
+      "description":"Comet is a 2.0 Petaflop (PF) Dell integrated compute cluster, with next-generation Intel Haswell processors (with AVX2), interconnected with Mellanox FDR InfiniBand in a hybrid fat-tree topology. Full bisection bandwidth is available at rack level (72 nodes) and there is a 4:1 oversubscription cross-rack. Compute nodes feature 320 GB of SSD storage and 128GB of DRAM per node. The system also features 7PB of performance storage (200GB/s aggregate), and 6PB of durable storage. Additionally, four 1.5TB large memory nodes and additional nodes for Gateway hosting and VM image repositories are available. Comet will enable high performance virtualization using the single root I/O virtualization (SR-IOV) technology.",
+      "computeResource": [
+        {
+          "schedulerType":"BATCH",
+          "connections": [
             {
-              "name": "SUBMISSION"
+              "connectionProtocol":"GRIDFTP",
+              "securityProtocol":"X509",
+              "proxyHost":"oasis-dm.sdsc.xsede.org",
+              "proxyPort":2811
+            },
+            {
+              "connectionProtocol":"SSH",
+              "securityProtocol":"SSHKEYS",
+              "port":22
+            },
+            {
+              "connectionProtocol":"SSH",
+              "securityProtocol":"X509",
+              "port":22
+            },
+            {
+              "connectionProtocol":"SCP",
+              "securityProtocol":"SSHKEYS",
+              "port":22
+            },
+            {
+              "connectionProtocol":"SCP",
+              "securityProtocol":"X509",
+              "port":22
+            }
+          ],
+          "batchSystem":
+            {
+              "jobManager":""
+            }
+        },
+        {
+          "schedulerType":"FORK",
+          "forkSystem":
+            {
+              "systemType":"LINUX"
+            },
+          "connections": [
+            {
+              "connectionProtocol":"GRIDFTP",
+              "securityProtocol":"X509",
+              "proxyHost":"oasis-dm.sdsc.xsede.org",
+              "proxyPort":2811
+            },
+            {
+              "connectionProtocol":"SSH",
+              "securityProtocol":"SSHKEYS",
+              "port":22
+            },
+            {
+              "connectionProtocol":"SSH",
+              "securityProtocol":"X509",
+              "port":22
+            },
+            {
+              "connectionProtocol":"SCP",
+              "securityProtocol":"SSHKEYS",
+              "port":22
+            },
+            {
+              "connectionProtocol":"SCP",
+              "securityProtocol":"X509",
+              "port":22
             }
           ]
         }
-      }
+      ],
+      "resourceStatus":
+        {
+          "status":"Production",
+          "starts":"2015-04-01",
+          "ends":"2021-03-31"
+        },
+      "resourceOutages": [
+        {
+          "type":"Full",
+          "name":"SDSC Comet Lustre projects filesystem issue",
+          "description":"We are currently seeing problems with one of the Comet Lustre projects filesystem servers. This has resulted in some of the Lustre storage targets going offline. There is a reservation in place to prevent new jobs from starting and we will update once we have more info on the timeline for resolution of the problem. Please email help@xsede.org if you have any questions.",
+          "url":"https://www.xsede.org/news/-/news/item/12691",
+          "starts":"2020-11-26T02:00:00Z",
+          "ends":"2020-11-28T02:00:00Z"
+        }
+      ]
     }
   ]
 }

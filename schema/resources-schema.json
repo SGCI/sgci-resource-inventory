@@ -33,6 +33,12 @@
     },
     "computeResources": {
       "$ref": "#/definitions/computeDefinitionList"
+    },
+    "resourceStatus": {
+      "$ref": "#/definitions/statusDefinition"
+    },
+    "resourceOutages": {
+      "$ref": "#/definitions/outageDefinitionList"
     }
   },
   "definitions": {
@@ -115,6 +121,12 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/computeDefinition"
+      }
+    },
+    "outageDefinitionList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/outageDefinition"
       }
     },
     "storageDefinition": {
@@ -457,6 +469,77 @@
           "examples" : [
             "64 GB"
           ]
+        }
+      }
+    },
+    "statusDefinition": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "description":"Descriptive current resource status",
+          "enum": [
+            "Pre-production",
+            "Production",
+            "Post-production"
+          ]
+        },
+        "startDate": {
+          "description":"When the resource starts the current status",
+          "type": "string",
+          "format": "date"
+        },
+        "endsDate": {
+          "description":"When the resource ends the current status",
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "outageDefinition": {
+      "type": "object",
+      "required": [
+        "startsDatetime",
+        "endsDatetime"
+      ],
+      "properties": {
+        "outageType": {
+          "type": "string",
+          "description":"It the outage full or partial",
+          "enum": [
+            "Partial",
+            "Full"
+          ]
+        },
+        "name": {
+          "description":"Outage descriptive name",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "description": {
+          "description":"Outage description",
+          "type": "string"
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "url": {
+          "description":"Outage details URL",
+          "type": "string",
+          "format": "uri"
+        },
+        "startsDatetime": {
+          "description":"Starting date and time in UTC",
+          "type": "string",
+          "format": "date-time"
+        },
+        "endsDatetime": {
+          "description":"Ending date and time in UTC",
+          "type": "string",
+          "format": "date-time"
         }
       }
     }
