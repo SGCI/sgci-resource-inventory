@@ -86,8 +86,12 @@
             "OAUTH2"
           ]
         },
+        "host": {
+          "description":"Communication endpoint host (if omitted, the top level host of this resource is used)",
+          "$ref": "#/definitions/hostName"
+        },
         "port": {
-          "description": "Communication endpoint",
+          "description": "Communication endpoint port",
           "type": "integer"
         },
         "useProxy": {
