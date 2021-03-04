@@ -436,6 +436,14 @@
             "maxGPUsPerJob": {
               "description":"Maximum number of gpus allowed to be used by a job",
               "type": "integer"
+            },
+            "minCPUsPerNode": {
+              "description":"Minimum number of cpus allowed to be requested for a node",
+              "type": "integer"
+            },
+            "maxCPUsPerNode": {
+              "description":"Maximum number of cpus allowed to be requested for a node",
+              "type": "integer"
             }
           }
         }
