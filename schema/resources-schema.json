@@ -94,10 +94,6 @@
           "description": "Communication endpoint port",
           "type": "integer"
         },
-        "useProxy": {
-          "description": "Some resources require to tunnel the connection through a proxy host",
-          "type": "boolean"
-        },
         "proxyHost": {
           "description":"The ProxyHost object includes details required to connect to the proxy tunneling",
           "$ref": "#/definitions/hostName"
