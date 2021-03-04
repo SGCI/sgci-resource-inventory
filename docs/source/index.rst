@@ -13,7 +13,7 @@ Welcome to SGCI RESOURCE INVENTORY's documentation!
    storageDefinition
    computeDefinition
    statusDefinition
-   OutageDefinition
+   outageDefinition
    schema
 
 Indices and tables
