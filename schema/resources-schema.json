@@ -300,6 +300,10 @@
             "LSF"
           ]
         },
+        "host": {
+          "description": "Hostname of the job manager",
+          "$ref": "#/definitions/hostName"
+        },
         "commandPaths": {
           "description":"List of commands supported by the Batch System",
           "type": "array",
