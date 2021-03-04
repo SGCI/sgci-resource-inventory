@@ -381,28 +381,56 @@
           "description":"queues or partition may have multiple restriction on the jobs allowed to run",
           "type": "object",
           "properties": {
+            "minJobsTotal": {
+              "description":"Minimum number of allowed jobs actively running on the partition",
+              "type": "integer"
+            },
             "maxJobsTotal": {
               "description":"Maximum number of allowed jobs actively running on the partition",
+              "type": "integer"
+            },
+            "minJobsPerUser": {
+              "description":"Minimum number of allowed jobs actively running on the partition for a user",
               "type": "integer"
             },
             "maxJobsPerUser": {
               "description":"Maximum number of allowed jobs actively running on the partition for a user",
               "type": "integer"
             },
+            "minNodesPerJob": {
+              "description":"Minimum number of nodes allowed to be used by a job",
+              "type": "integer"
+            },
             "maxNodesPerJob": {
               "description":"Maximum number of nodes allowed to be used by a job",
+              "type": "integer"
+            },
+            "minTimePerJob": {
+              "description":"Minimum time a job can run without been killed",
               "type": "integer"
             },
             "maxTimePerJob": {
               "description":"Maximum time a job can run without been killed",
               "type": "integer"
             },
+            "minMemoryPerJob": {
+              "description":"Minimum memory allocated for a job",
+              "type": "string"
+            },
             "maxMemoryPerJob": {
               "description":"Maximum memory allocated for a job",
               "type": "string"
             },
+            "minCPUsPerJob": {
+              "description":"Minimum number of cpus allowed to be used by a job",
+              "type": "integer"
+            },
             "maxCPUsPerJob": {
               "description":"Maximum number of cpus allowed to be used by a job",
+              "type": "integer"
+            },
+            "minGPUsPerJob": {
+              "description":"Minimum number of gpus allowed to be used by a job",
               "type": "integer"
             },
             "maxGPUsPerJob": {
