@@ -293,7 +293,11 @@
           "enum": [
             "SLURM",
             "SGE",
-            "PBS"
+            "PBS",
+            "PBSPRO",
+            "TORQUE",
+            "LOADLEVELER",
+            "LSF"
           ]
         },
         "commandPaths": {
