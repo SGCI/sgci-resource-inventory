@@ -26,13 +26,10 @@
             "path": "/bin/sbatch"
           }
         ],
-        "hardwareProfiles": [
+        "partitions": [
           {
             "name": "normal",
             "totalNodes": 256,
-            "submitArgs": [
-              "--partition=normal"
-            ],
             "nodeHardware": {
               "cpuType": "KNL CPUs @ 1.40GHz",
               "cpuCount": 68,

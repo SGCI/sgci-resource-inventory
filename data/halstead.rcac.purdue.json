@@ -26,13 +26,10 @@
             "path": "/bin/sbatch"
           }
         ],
-        "hardwareProfiles": [
+        "partitions": [
           {
             "name": "halstead-standby",
             "totalNodes": 580,
-            "submitArgs": [
-              "--partition=halstead-standby"
-            ],
             "nodeHardware": {
               "cpuType": "Haswell CPUs @ 2.60GHz",
               "cpuCount": 20,

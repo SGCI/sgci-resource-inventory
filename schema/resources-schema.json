@@ -311,11 +311,11 @@
             "$ref": "#/definitions/commandPathDefinition"
           }
         },
-        "hardwareProfiles": {
-          "description":"List of hardware profiles for Batch System",
+        "partitions": {
+          "description":"List of public partitions and queues installed on the Batch System",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/hardwareProfileDefinition"
+            "$ref": "#/definitions/partitionDefinition"
           }
         }
       }
@@ -346,14 +346,14 @@
         }
       }
     },
-    "hardwareProfileDefinition": {
+    "partitionDefinition": {
       "type": "object",
       "required": [
         "name"
       ],
       "properties": {
         "name": {
-          "description":"This label represents the hardware profile for the job scheduler",
+          "description":"This label represents a queue or partition in the job scheduler",
           "type": "string",
           "examples": [
             "normal",
