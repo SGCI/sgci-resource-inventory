@@ -353,7 +353,7 @@
       ],
       "properties": {
         "name": {
-          "description":"This label represents a queue or partition in the job scheduler",
+          "description":"This label represents a partition of hardware for the resource, typically a queue or partition in the job scheduler",
           "type": "string",
           "examples": [
             "normal",
@@ -361,7 +361,7 @@
           ]
         },
         "submitArgs": {
-          "description": "Array of submit arguments (sbatch, qsub etc.)",
+          "description":"Arguments required to request this partition of hardware (if omitted, '-p PARTITION_NAME' or '-q PARTITION_NAME' is used, depending on the job scheduler)",
           "type": "array",
           "items": {
             "type": "string"
