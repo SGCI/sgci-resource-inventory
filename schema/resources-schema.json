@@ -86,13 +86,13 @@
             "OAUTH2"
           ]
         },
-        "port": {
-          "description": "Communication endpoint",
-          "type": "integer"
+        "host": {
+          "description":"Communication endpoint host (if omitted, the top level host of this resource is used)",
+          "$ref": "#/definitions/hostName"
         },
-        "useProxy": {
-          "description": "Some resources require to tunnel the connection through a proxy host",
-          "type": "boolean"
+        "port": {
+          "description": "Communication endpoint port",
+          "type": "integer"
         },
         "proxyHost": {
           "description":"The ProxyHost object includes details required to connect to the proxy tunneling",
@@ -293,8 +293,16 @@
           "enum": [
             "SLURM",
             "SGE",
-            "PBS"
+            "PBS",
+            "PBSPRO",
+            "TORQUE",
+            "LOADLEVELER",
+            "LSF"
           ]
+        },
+        "host": {
+          "description": "Hostname of the job manager",
+          "$ref": "#/definitions/hostName"
         },
         "commandPaths": {
           "description":"List of commands supported by the Batch System",
@@ -345,11 +353,24 @@
       ],
       "properties": {
         "name": {
-          "description":"This label represents a queue or partition in the job scheduler",
+          "description":"This label represents a partition of hardware for the resource, typically a queue or partition in the job scheduler",
           "type": "string",
           "examples": [
             "normal",
             "large-mem"
+          ]
+        },
+        "submitArgs": {
+          "description":"Arguments required to request this partition of hardware (if omitted, '-p PARTITION_NAME' or '-q PARTITION_NAME' is used, depending on the job scheduler)",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            "--nodes=1",
+            "--partition=hugemem",
+            "--exclusive",
+            "--constraint=40core"
           ]
         },
         "totalNodes": {
@@ -364,32 +385,68 @@
           "description":"queues or partition may have multiple restriction on the jobs allowed to run",
           "type": "object",
           "properties": {
+            "minJobsTotal": {
+              "description":"Minimum number of allowed jobs actively running on the partition",
+              "type": "integer"
+            },
             "maxJobsTotal": {
               "description":"Maximum number of allowed jobs actively running on the partition",
+              "type": "integer"
+            },
+            "minJobsPerUser": {
+              "description":"Minimum number of allowed jobs actively running on the partition for a user",
               "type": "integer"
             },
             "maxJobsPerUser": {
               "description":"Maximum number of allowed jobs actively running on the partition for a user",
               "type": "integer"
             },
+            "minNodesPerJob": {
+              "description":"Minimum number of nodes allowed to be used by a job",
+              "type": "integer"
+            },
             "maxNodesPerJob": {
               "description":"Maximum number of nodes allowed to be used by a job",
+              "type": "integer"
+            },
+            "minTimePerJob": {
+              "description":"Minimum time a job can run without been killed",
               "type": "integer"
             },
             "maxTimePerJob": {
               "description":"Maximum time a job can run without been killed",
               "type": "integer"
             },
+            "minMemoryPerJob": {
+              "description":"Minimum memory allocated for a job",
+              "type": "string"
+            },
             "maxMemoryPerJob": {
               "description":"Maximum memory allocated for a job",
               "type": "string"
+            },
+            "minCPUsPerJob": {
+              "description":"Minimum number of cpus allowed to be used by a job",
+              "type": "integer"
             },
             "maxCPUsPerJob": {
               "description":"Maximum number of cpus allowed to be used by a job",
               "type": "integer"
             },
+            "minGPUsPerJob": {
+              "description":"Minimum number of gpus allowed to be used by a job",
+              "type": "integer"
+            },
             "maxGPUsPerJob": {
               "description":"Maximum number of gpus allowed to be used by a job",
+              "type": "integer"
+            },
+            "minCPUsPerNode": {
+              "description":"Minimum number of cpus allowed to be requested for a node",
+              "type": "integer"
+            },
+            "maxCPUsPerNode": {
+              "description":"Maximum number of cpus allowed to be requested for a node",
               "type": "integer"
             }
           }
