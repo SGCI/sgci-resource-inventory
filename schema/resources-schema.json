@@ -579,7 +579,7 @@
         },
         "description": {
           "description":"Outage description",
-          "type": "string"
+          "type": "string",
           "minLength": 1,
           "maxLength": 4096
         },
