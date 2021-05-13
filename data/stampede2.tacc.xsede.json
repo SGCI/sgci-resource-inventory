@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "0.1.0",
+  "schemaVersion": "1.0.0",
   "host": "stampede2.tacc.xsede.org",
   "name": "tacc-xsede-stampede2",
   "description": "WIP: Sample resource for TACC Stampede2 Cluster",

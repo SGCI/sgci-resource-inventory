@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "0.1.0",
+  "schemaVersion": "1.0.0",
   "host": "data.tacc.utexas.edu",
   "name": "tacc-corral-storage-login",
   "description": "TACC Corral high-performance storage resource",
@@ -60,7 +60,8 @@
           "connectionProtocol": "HTTPS",
           "securityProtocol": "APIKEYS"
         }
-      ]
+      ],
+      "fileSystems": []
     },
     {
       "storageType": "IRODS",
@@ -69,7 +70,8 @@
           "connectionProtocol": "IRODS",
           "securityProtocol": "PASSWORDS"
         }
-      ]
+      ],
+      "fileSystems": []
     }
   ]
 }
