@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Complete INVENTORY Schema" href="schema.html" />
+    <link rel="next" title="Status Object" href="statusDefinition.html" />
     <link rel="prev" title="Storage Resource Object" href="storageDefinition.html" /> 
 </head>
 
@@ -93,6 +93,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="statusDefinition.html">Status Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outageDefinition.html">Outage Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schema.html">Complete INVENTORY Schema</a></li>
 </ul>
 
@@ -273,22 +275,21 @@
 <td><p>PASSWORDS, SSHKEYS, APIKEYS, X509, OAUTH2</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>host</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Communication endpoint host (if omitted, the top level host of this resource is used)</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/hostName</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>port</p></li>
 </ul>
 </td>
-<td colspan="2"><p>Communication endpoint</p></td>
+<td colspan="2"><p>Communication endpoint port</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>useProxy</p></li>
-</ul>
-</td>
-<td colspan="2"><p>Some resources require to tunnel the connection through a proxy host</p></td>
-</tr>
-<tr class="row-odd"><td><p>type</p></td>
-<td><p><em>boolean</em></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyHost</p></li>
@@ -334,7 +335,15 @@
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>enum</p></td>
-<td><p>SLURM, SGE, PBS</p></td>
+<td><p>SLURM, SGE, PBS, PBSPRO, TORQUE, LOADLEVELER, LSF</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>host</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Hostname of the job manager</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/hostName</span></p></td>
 </tr>
 <tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p>commandPaths</p></li>
@@ -488,6 +497,13 @@
               <span class="s2">&quot;memorySize&quot;</span><span class="o">:</span> <span class="s2">&quot;96 GB&quot;</span>
             <span class="p">}</span>
           <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;executionCommands&quot;</span> <span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;commandType&quot;</span> <span class="o">:</span> <span class="s2">&quot;mpi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;commandPrefix&quot;</span> <span class="o">:</span> <span class="s2">&quot;ibrun&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;moduleDependencies&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;intel/17.0.4&quot;</span><span class="p">,</span> <span class="s2">&quot;impi/17.0.3&quot;</span><span class="p">]</span>
+          <span class="p">}</span>
         <span class="p">]</span>
       <span class="p">}</span>
     <span class="p">},</span>
@@ -543,7 +559,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="schema.html" class="btn btn-neutral float-right" title="Complete INVENTORY Schema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="statusDefinition.html" class="btn btn-neutral float-right" title="Status Object" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="storageDefinition.html" class="btn btn-neutral float-left" title="Storage Resource Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

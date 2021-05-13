@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Status Object &mdash; SGCI RESOURCE INVENTORY  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/msmb.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/js/versions.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Outage Object" href="outageDefinition.html" />
+    <link rel="prev" title="Compute Resource Object" href="computeDefinition.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SGCI RESOURCE INVENTORY
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to SCGI Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storageDefinition.html">Storage Resource Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Status Object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="outageDefinition.html">Outage Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema.html">Complete INVENTORY Schema</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SGCI RESOURCE INVENTORY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Status Object</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/statusDefinition.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="status-object">
+<h1>Status Object<a class="headerlink" href="#status-object" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>XSEDE Comet Resource</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;sgciResources&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;schemaVersion&quot;</span><span class="o">:</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;host&quot;</span><span class="o">:</span><span class="s2">&quot;comet.sdsc.xsede.org&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;SDSC Dell Cluster with Intel Haswell Processors (Comet)&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="s2">&quot;Comet is a 2.0 Petaflop (PF) Dell integrated compute cluster, with next-generation Intel Haswell processors (with AVX2), interconnected with Mellanox FDR InfiniBand in a hybrid fat-tree topology. Full bisection bandwidth is available at rack level (72 nodes) and there is a 4:1 oversubscription cross-rack. Compute nodes feature 320 GB of SSD storage and 128GB of DRAM per node. The system also features 7PB of performance storage (200GB/s aggregate), and 6PB of durable storage. Additionally, four 1.5TB large memory nodes and additional nodes for Gateway hosting and VM image repositories are available. Comet will enable high performance virtualization using the single root I/O virtualization (SR-IOV) technology.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;computeResource&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span><span class="s2">&quot;BATCH&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;connections&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;GRIDFTP&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;X509&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;proxyHost&quot;</span><span class="o">:</span><span class="s2">&quot;oasis-dm.sdsc.xsede.org&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;proxyPort&quot;</span><span class="o">:</span><span class="mi">2811</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;port&quot;</span><span class="o">:</span><span class="mi">22</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;X509&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;port&quot;</span><span class="o">:</span><span class="mi">22</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SCP&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;port&quot;</span><span class="o">:</span><span class="mi">22</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SCP&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;X509&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;port&quot;</span><span class="o">:</span><span class="mi">22</span>
+            <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="s2">&quot;batchSystem&quot;</span><span class="o">:</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;jobManager&quot;</span><span class="o">:</span><span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;schedulerType&quot;</span><span class="o">:</span><span class="s2">&quot;FORK&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;forkSystem&quot;</span><span class="o">:</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;systemType&quot;</span><span class="o">:</span><span class="s2">&quot;LINUX&quot;</span>
+            <span class="p">},</span>
+          <span class="s2">&quot;connections&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;GRIDFTP&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;X509&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;proxyHost&quot;</span><span class="o">:</span><span class="s2">&quot;oasis-dm.sdsc.xsede.org&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;proxyPort&quot;</span><span class="o">:</span><span class="mi">2811</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;port&quot;</span><span class="o">:</span><span class="mi">22</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SSH&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;X509&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;port&quot;</span><span class="o">:</span><span class="mi">22</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SCP&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SSHKEYS&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;port&quot;</span><span class="o">:</span><span class="mi">22</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;connectionProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;SCP&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;securityProtocol&quot;</span><span class="o">:</span><span class="s2">&quot;X509&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;port&quot;</span><span class="o">:</span><span class="mi">22</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;resourceStatus&quot;</span><span class="o">:</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;status&quot;</span><span class="o">:</span><span class="s2">&quot;Production&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;starts&quot;</span><span class="o">:</span><span class="s2">&quot;2015-04-01&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ends&quot;</span><span class="o">:</span><span class="s2">&quot;2021-03-31&quot;</span>
+        <span class="p">},</span>
+      <span class="s2">&quot;resourceOutages&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;Full&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;SDSC Comet Lustre projects filesystem issue&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="s2">&quot;We are currently seeing problems with one of the Comet Lustre projects filesystem servers. This has resulted in some of the Lustre storage targets going offline. There is a reservation in place to prevent new jobs from starting and we will update once we have more info on the timeline for resolution of the problem. Please email help@xsede.org if you have any questions.&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="s2">&quot;https://www.xsede.org/news/-/news/item/12691&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;starts&quot;</span><span class="o">:</span><span class="s2">&quot;2020-11-26T02:00:00Z&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ends&quot;</span><span class="o">:</span><span class="s2">&quot;2020-11-28T02:00:00Z&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="outageDefinition.html" class="btn btn-neutral float-right" title="Outage Object" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="computeDefinition.html" class="btn btn-neutral float-left" title="Compute Resource Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Joe Stubbs, Suresh Marru, Steve Black, Dimuthu Wannipurage, Daniel Mejia
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script>
+    var versions_json_url = ''
+</script>
+
+<div class="rst-versions" data-toggle="rst-versions" role="note"
+     aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"></span>
+        
+      <span class="fa fa-caret-down"></span>
+    </span>
+
+    <div class="rst-other-versions">
+        <dl id="versionselector">
+            <dt>Other Versions</dt>
+        </dl>
+
+    </div>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
