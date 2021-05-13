@@ -6,7 +6,8 @@ Introduction to SCGI Inventory
 ---------------------------------------------------
 Version
 ---------------------------------------------------
-This is version 0.1.0 of the SGCI Resource Description Specification schema. <LICENSE INFO>
+This is version 1.0.0 of the SGCI Resource Description Specification schema. This work is released under an Apache 2.0
+`license <https://raw.githubusercontent.com/SGCI/sgci-resource-inventory/master/LICENSE>`_ .
 
 ---------------------------------------------------
 Introduction
