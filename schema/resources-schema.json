@@ -589,12 +589,12 @@
           "format": "uri"
         },
         "startsDatetime": {
-          "description":"Starting date and time in UTC",
+          "description":"Starting date and time in UTC and ISO 8601 format",
           "type": "string",
           "format": "date-time"
         },
         "endsDatetime": {
-          "description":"Ending date and time in UTC",
+          "description":"Ending date and time in UTC and ISO 8601 format",
           "type": "string",
           "format": "date-time"
         }
