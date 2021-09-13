@@ -93,6 +93,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statusDefinition.html">Status Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outageDefinition.html">Outage Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schema.html">Complete INVENTORY Schema</a></li>
 </ul>
 
@@ -280,22 +282,21 @@ at least one <code class="docutils literal notranslate"><span class="pre">storag
 <td><p>PASSWORDS, SSHKEYS, APIKEYS, X509, OAUTH2</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>host</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Communication endpoint host (if omitted, the top level host of this resource is used)</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><span class="xref std std-ref">#/definitions/hostName</span></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>port</p></li>
 </ul>
 </td>
-<td colspan="2"><p>Communication endpoint</p></td>
+<td colspan="2"><p>Communication endpoint port</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>useProxy</p></li>
-</ul>
-</td>
-<td colspan="2"><p>Some resources require to tunnel the connection through a proxy host</p></td>
-</tr>
-<tr class="row-odd"><td><p>type</p></td>
-<td><p><em>boolean</em></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyHost</p></li>

@@ -231,7 +231,6 @@
           "enum": [
             "FORK",
             "BATCH",
-            "ON_DEMAND"
           ]
         },
         "connections": {

@@ -90,11 +90,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#definitions">Definitions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#specification-format">Specification Format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#information-not-in-the-spec">Information Not In The Spec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#integration">Integration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="storageDefinition.html">Storage Resource Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statusDefinition.html">Status Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outageDefinition.html">Outage Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schema.html">Complete INVENTORY Schema</a></li>
 </ul>
 
@@ -165,7 +168,8 @@
 <h1>Introduction to SCGI Inventory<a class="headerlink" href="#introduction-to-scgi-inventory" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="version">
 <h2>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
-<p>This is version 0.1.0 of the SGCI Resource Description Specification schema. &lt;LICENSE INFO&gt;</p>
+<p>This is version 1.0.0 of the SGCI Resource Description Specification schema. This work is released under an Apache 2.0
+<a class="reference external" href="https://raw.githubusercontent.com/SGCI/sgci-resource-inventory/master/LICENSE">license</a> .</p>
 </div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -389,6 +393,13 @@ directly on the login node. Additionally, the <code class="docutils literal notr
               <span class="s2">&quot;memorySize&quot;</span><span class="o">:</span> <span class="s2">&quot;96 GB&quot;</span>
             <span class="p">}</span>
           <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;executionCommands&quot;</span> <span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;commandType&quot;</span> <span class="o">:</span> <span class="s2">&quot;mpi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;commandPrefix&quot;</span> <span class="o">:</span> <span class="s2">&quot;ibrun&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;moduleDependencies&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;intel/17.0.4&quot;</span><span class="p">,</span> <span class="s2">&quot;impi/17.0.3&quot;</span><span class="p">]</span>
+          <span class="p">}</span>
         <span class="p">]</span>
       <span class="p">}</span>
     <span class="p">},</span>
@@ -433,6 +444,30 @@ directly on the login node. Additionally, the <code class="docutils literal notr
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="information-not-in-the-spec">
+<h2>Information Not In The Spec<a class="headerlink" href="#information-not-in-the-spec" title="Permalink to this headline">¶</a></h2>
+<p>Over the course of working on the specification, the project has decided to not include different resource
+types and/or additional attributes of existing resource types in version 1.0 for various reasons. In some cases, we
+plan to include the information in a subsequent version of the specification. In this section we collect some of the
+information not chosen for v 1.0, together with the rationale for not including it.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Multi-factor authentication (MFA) requirements of a resource – MFA requirements are definitely important to capture
+and will be included in a subsequent version of the spec, but we want to make sure we have a good, general-purpose
+way of describing what seem to be a rapidly evolving aspect of cyberinfrastructure.</p></li>
+<li><p>Available Software Modules and other software on an execution system – The project may include such information in
+a subsequent version of the spec, but we want to make sure we have good mechanisms in place for working with
+information that is changing rapidly.</p></li>
+<li><p>More recent cloud storage and computing resource types – A number of different cloud resource types, including container
+orchestration systems such as Kubernetes and Docker Swarm, as well as Functions-as-a-service such as AWS Lambda,
+were intentionally not included in version 1.0. We hope to include these in a future release once the community
+has built some expertise incorporating them into science gateways.</p></li>
+<li><p>Databases and Web Services – Databases, including MySQL, Postgres, MongoDB, etc., and web service APIs like
+Figshare, Google Drive, etc., are not included in the spec, as these represent a significant departure from the
+kinds of resources defined in the current version. We do not currently plan to include them in any future version.</p></li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="integration">
 <h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>

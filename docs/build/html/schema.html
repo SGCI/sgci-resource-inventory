@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Compute Resource Object" href="computeDefinition.html" /> 
+    <link rel="prev" title="Outage Object" href="outageDefinition.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,6 +86,8 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to SCGI Inventory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="storageDefinition.html">Storage Resource Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computeDefinition.html">Compute Resource Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statusDefinition.html">Status Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outageDefinition.html">Outage Object</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Complete INVENTORY Schema</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#resourcename">resourceName</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#hostname">hostName</a></li>
@@ -93,6 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#connectiondefinition">connectionDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#storagedefinitionlist">storageDefinitionList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#computedefinitionlist">computeDefinitionList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outagedefinitionlist">outageDefinitionList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#storagedefinition">storageDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#filesystemdefinition">fileSystemDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#computedefinition">computeDefinition</a></li>
@@ -102,6 +105,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#partitiondefinition">partitionDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#forksystemdefinition">forkSystemDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statusdefinition">statusDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outagedefinition">outageDefinition</a></li>
 </ul>
 </li>
 </ul>
@@ -236,6 +241,18 @@
 </td>
 <td colspan="2"><p><a class="reference internal" href="#computedefinitionlist">computeDefinitionList</a></p></td>
 </tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>resourceStatus</p></li>
+</ul>
+</td>
+<td colspan="2"><p><a class="reference internal" href="#statusdefinition">statusDefinition</a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>resourceOutages</p></li>
+</ul>
+</td>
+<td colspan="2"><p><a class="reference internal" href="#outagedefinitionlist">outageDefinitionList</a></p></td>
+</tr>
 <tr class="row-even"><td><p>additionalProperties</p></td>
 <td colspan="2"><p>False</p></td>
 </tr>
@@ -348,22 +365,21 @@
 <td><p>PASSWORDS, SSHKEYS, APIKEYS, X509, OAUTH2</p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>host</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Communication endpoint host (if omitted, the top level host of this resource is used)</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#hostname">hostName</a></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>port</p></li>
 </ul>
 </td>
-<td colspan="2"><p>Communication endpoint</p></td>
+<td colspan="2"><p>Communication endpoint port</p></td>
 </tr>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
-<li><p>useProxy</p></li>
-</ul>
-</td>
-<td colspan="2"><p>Some resources require to tunnel the connection through a proxy host</p></td>
-</tr>
-<tr class="row-odd"><td><p>type</p></td>
-<td><p><em>boolean</em></p></td>
 </tr>
 <tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>proxyHost</p></li>
@@ -415,6 +431,23 @@
 </tr>
 <tr class="row-even"><td><p>items</p></td>
 <td><p><a class="reference internal" href="#computedefinition">computeDefinition</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="outagedefinitionlist">
+<span id="outagedefinitionlist"></span><h2>outageDefinitionList<a class="headerlink" href="#outagedefinitionlist" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>array</em></p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#outagedefinition">outageDefinition</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -731,7 +764,15 @@
 <td><p><em>string</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>enum</p></td>
-<td><p>SLURM, SGE, PBS</p></td>
+<td><p>SLURM, SGE, PBS, PBSPRO, TORQUE, LOADLEVELER, LSF</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p>host</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Hostname of the job manager</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#hostname">hostName</a></p></td>
 </tr>
 <tr class="row-even"><td rowspan="3"><ul class="simple">
 <li><p>commandPaths</p></li>
@@ -829,7 +870,7 @@
 <li><p><strong>name</strong></p></li>
 </ul>
 </td>
-<td colspan="3"><p>This label represents a queue or partition in the job scheduler</p></td>
+<td colspan="3"><p>This label represents a partition of hardware for the resource, typically a queue or partition in the job scheduler</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>string</em></p></td>
@@ -839,95 +880,198 @@
 </tr>
 <tr class="row-even"><td colspan="2"><p>large-mem</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="7"><ul class="simple">
+<li><p>submitArgs</p></li>
+</ul>
+</td>
+<td colspan="3"><p>Arguments required to request this partition of hardware (if omitted, ‘-p PARTITION_NAME’ or ‘-q PARTITION_NAME’ is used, depending on the job scheduler)</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td colspan="2"><p><em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>examples</p></td>
+<td colspan="2"><p>–nodes=1</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>–partition=hugemem</p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p>–exclusive</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>–constraint=40core</p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>totalNodes</p></li>
 </ul>
 </td>
 <td colspan="3"><p>Number of available nodes on this partition / queue</p></td>
 </tr>
-<tr class="row-even"><td><p>type</p></td>
+<tr class="row-odd"><td><p>type</p></td>
 <td colspan="2"><p><em>integer</em></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<tr class="row-even"><td rowspan="2"><ul class="simple">
 <li><p>nodeHardware</p></li>
 </ul>
 </td>
 <td colspan="3"><p>The nodeHardware object includes detailed information of the node</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></p></td>
+<tr class="row-odd"><td colspan="3"><p><a class="reference internal" href="#nodehardwaredefinition">nodeHardwareDefinition</a></p></td>
 </tr>
-<tr class="row-odd"><td rowspan="17"><ul class="simple">
+<tr class="row-even"><td rowspan="35"><ul class="simple">
 <li><p>computeQuotas</p></li>
 </ul>
 </td>
 <td colspan="3"><p>queues or partition may have multiple restriction on the jobs allowed to run</p></td>
 </tr>
-<tr class="row-even"><td><p>type</p></td>
+<tr class="row-odd"><td><p>type</p></td>
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>properties</p></td>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>minJobsTotal</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Minimum number of allowed jobs actively running on the partition</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>maxJobsTotal</p></li>
 </ul>
 </td>
 <td colspan="2"><p>Maximum number of allowed jobs actively running on the partition</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>minJobsPerUser</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Minimum number of allowed jobs actively running on the partition for a user</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>maxJobsPerUser</p></li>
 </ul>
 </td>
 <td colspan="2"><p>Maximum number of allowed jobs actively running on the partition for a user</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>minNodesPerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Minimum number of nodes allowed to be used by a job</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>maxNodesPerJob</p></li>
 </ul>
 </td>
 <td colspan="2"><p>Maximum number of nodes allowed to be used by a job</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>minTimePerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Minimum time a job can run without been killed</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>maxTimePerJob</p></li>
 </ul>
 </td>
 <td colspan="2"><p>Maximum time a job can run without been killed</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>minMemoryPerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Minimum memory allocated for a job</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>maxMemoryPerJob</p></li>
 </ul>
 </td>
 <td colspan="2"><p>Maximum memory allocated for a job</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>string</em></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>minCPUsPerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Minimum number of cpus allowed to be used by a job</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>maxCPUsPerJob</p></li>
 </ul>
 </td>
 <td colspan="2"><p>Maximum number of cpus allowed to be used by a job</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><ul class="simple">
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>minGPUsPerJob</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Minimum number of gpus allowed to be used by a job</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>maxGPUsPerJob</p></li>
 </ul>
 </td>
 <td colspan="2"><p>Maximum number of gpus allowed to be used by a job</p></td>
 </tr>
-<tr class="row-odd"><td><p>type</p></td>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>minCPUsPerNode</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Minimum number of cpus allowed to be requested for a node</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p>maxCPUsPerNode</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Maximum number of cpus allowed to be requested for a node</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
 <td><p><em>integer</em></p></td>
 </tr>
 </tbody>
@@ -1063,6 +1207,154 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="statusdefinition">
+<span id="statusdefinition"></span><h2>statusDefinition<a class="headerlink" href="#statusdefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>status</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Descriptive current resource status</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>Pre-production, Production, Post-production</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p>startDate</p></li>
+</ul>
+</td>
+<td colspan="2"><p>When the resource starts the current status</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>format</p></td>
+<td><p>date</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p>endsDate</p></li>
+</ul>
+</td>
+<td colspan="2"><p>When the resource ends the current status</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>format</p></td>
+<td><p>date</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="outagedefinition">
+<span id="outagedefinition"></span><h2>outageDefinition<a class="headerlink" href="#outagedefinition" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td colspan="2"><p><em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p>outageType</p></li>
+</ul>
+</td>
+<td colspan="2"><p>It the outage full or partial</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>Partial, Full</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="simple">
+<li><p>name</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Outage descriptive name</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>maxLength</p></td>
+<td><p>128</p></td>
+</tr>
+<tr class="row-odd"><td><p>minLength</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="simple">
+<li><p>description</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Outage description</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>maxLength</p></td>
+<td><p>4096</p></td>
+</tr>
+<tr class="row-odd"><td><p>minLength</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p>url</p></li>
+</ul>
+</td>
+<td colspan="2"><p>Outage details URL</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>format</p></td>
+<td><p>uri</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>startsDatetime</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Starting date and time in UTC</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>format</p></td>
+<td><p>date-time</p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p><strong>endsDatetime</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>Ending date and time in UTC</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p><em>string</em></p></td>
+</tr>
+<tr class="row-even"><td><p>format</p></td>
+<td><p>date-time</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -1074,7 +1366,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="computeDefinition.html" class="btn btn-neutral float-left" title="Compute Resource Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="outageDefinition.html" class="btn btn-neutral float-left" title="Outage Object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
