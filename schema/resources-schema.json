@@ -230,7 +230,7 @@
           "type": "string",
           "enum": [
             "FORK",
-            "BATCH",
+            "BATCH"
           ]
         },
         "connections": {
